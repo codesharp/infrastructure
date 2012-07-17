@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BF4A398D-0392-4557-840E-C0E6302E6204}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CodeSharp.Core.Castles</RootNamespace>
+    <AssemblyName>CodeSharp.Core.Castles</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\packages\Castle.Core.3.0.0.4001\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\packages\NHibernate.3.3.1.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigurationExtensions.cs" />
+    <Compile Include="FluentNHibernateConfigurationBuilder.cs" />
+    <Compile Include="includes\Castle.Facilities.AutoTx\InjectTransaction.cs" />
+    <Compile Include="includes\Castle.Facilities.AutoTx\TransactionComponentInspector.cs" />
+    <Compile Include="includes\Castle.Facilities.AutoTx\TransactionFacility.cs" />
+    <Compile Include="includes\Castle.Facilities.AutoTx\TransactionInterceptor.cs" />
+    <Compile Include="includes\Castle.Facilities.AutoTx\TransactionMetaInfo.cs" />
+    <Compile Include="includes\Castle.Facilities.AutoTx\TransactionMetaInfoStore.cs" />
+    <Compile Include="includes\Castle.Facilities.Logging\LoggerResolver.cs" />
+    <Compile Include="includes\Castle.Facilities.Logging\LoggingFacility.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Builders\DefaultConfigurationBuilder.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Builders\PersistentConfigurationBuilder.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Builders\XmlConfigurationBuilder.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Dao\DataException.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Dao\IGenericDao.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Dao\INHibernateGenericDao.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Dao\NHibernateGenericDao.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Web\SessionWebModule.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Constants.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\DefaultSessionManager.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\IConfigurationBuilder.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\IConfigurationContributor.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\IConfigurationPersister.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\Empty.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\FileAssemblyResource.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\NHSessionComponentInspector.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\NHSessionInterceptor.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\ResourceAdapter.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\SessionDelegate.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\SessionDisposeSynchronization.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\SessionFactoryActivator.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\SessionFactoryResolver.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\StatelessSessionDelegate.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\StatelessSessionDisposeSynchronization.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\ISessionFactoryResolver.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\ISessionManager.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\ISessionStore.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\NHibernateFacility.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\NHSessionAttribute.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Persisters\DefaultConfigurationPersister.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\SessionStores\AbstractDictStackSessionStore.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\SessionStores\AbstractSessionStore.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\SessionStores\CallContextSessionStore.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\SessionStores\WebSessionStore.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Util\FieldInfoCollection.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Util\ReflectionUtil.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Util\ReflectionUtility.cs" />
+    <Compile Include="includes\Castle.Services.Logging.log4netIntegration\ExtendedLog4netFactory.cs" />
+    <Compile Include="includes\Castle.Services.Logging.log4netIntegration\ExtendedLog4netLogger.cs" />
+    <Compile Include="includes\Castle.Services.Logging.log4netIntegration\GlobalContextProperties.cs" />
+    <Compile Include="includes\Castle.Services.Logging.log4netIntegration\Log4netFactory.cs" />
+    <Compile Include="includes\Castle.Services.Logging.log4netIntegration\Log4netLogger.cs" />
+    <Compile Include="includes\Castle.Services.Logging.log4netIntegration\ThreadContextProperties.cs" />
+    <Compile Include="includes\Castle.Services.Logging.log4netIntegration\ThreadContextStack.cs" />
+    <Compile Include="includes\Castle.Services.Logging.log4netIntegration\ThreadContextStacks.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Attributes\TransactionalAttribute.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Attributes\TransactionAttribute.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Events\TransactionEventArgs.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Events\TransactionFailedEventArgs.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Exceptions\CommitResourceException.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Exceptions\RollbackResourceException.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Exceptions\TransactionalConflictException.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Exceptions\TransactionException.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Exceptions\TransactionModeUnsupportedException.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\FileTransactions\FileResourceAdapter.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\FileTransactions\FileTransaction.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\FileTransactions\IKernelTransaction.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\FileTransactions\SafeFindHandle.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\FileTransactions\SafeTxHandle.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\GenericTransactions\ChildTransaction.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\GenericTransactions\TalkativeTransaction.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\GenericTransactions\TransactionBase.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\GenericTransactions\TransactionScopeResourceAdapter.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IActivityManager.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IEventPublisher.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IFileTransaction.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IO\DirectoryAdapter.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IO\FileAdapter.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IO\IDirectoryAdapter.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IO\IFileAdapter.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IO\IMapPath.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IO\MapPathImpl.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IO\Path.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IO\PathEx.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IO\PathInfo.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IO\PathType.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IO\TxAdapterBase.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IResource.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IsolationMode.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\ISynchronization.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\ITransaction.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Managers\Activity.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Managers\CallContextActivityManager.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Managers\DefaultTransactionManager.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Managers\ITransactionManager.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Managers\TLSActivityManager.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Misc\Fun.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\TransactionMode.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\TransactionStatus.cs" />
+    <Compile Include="includes\NHibernate.ByteCode.Castle\LazyInitializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\NHibernate.ByteCode.Castle\ProxyFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\NHibernate.ByteCode.Castle\ProxyFactoryFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\NHibernate.Caches.SysCache\CacheConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\NHibernate.Caches.SysCache\SysCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\NHibernate.Caches.SysCache\SysCacheProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\NHibernate.Caches.SysCache\SysCacheSectionHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Log4NetLogger.cs" />
+    <Compile Include="Log4NetLoggerFactory.cs" />
+    <Compile Include="MultiTransientLifestyleManager.cs" />
+    <Compile Include="MultiWindsorResolver.cs" />
+    <Compile Include="NHibernateRepositoryBase.cs" />
+    <Compile Include="NHibernateRepositoryUtility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="WindsorExtensions.cs" />
+    <Compile Include="WindsorResolver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="includes\Castle.Services.Transaction\Diagrams\Transaction Hierarchy and Managers.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeSharp.Core\CodeSharp.Core.csproj">
+      <Project>{09088AAE-32AB-4EA8-B918-D5568C047A89}</Project>
+      <Name>CodeSharp.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="includes\Castle.Facilities.NHibernateIntegration\Changes.txt" />
+    <Content Include="includes\Castle.Facilities.NHibernateIntegration\License.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

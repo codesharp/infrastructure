@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Taobao.Infrastructure</id>
+    <version>1.0</version>
+    <title>基础设施 基于.NET3.5/4.0</title>
+    <authors>houkun</authors>
+    <owners />
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      Taobao.Infrastructure.dll
+    </description>
+    <copyright>2011</copyright>
+    <language>zh-CN</language>
+  </metadata>
+  <files>
+	<file src="Infrastructure\Taobao.Infrastructure.dll" target="lib\net35\Taobao.Infrastructure.dll" />
+    <file src="Infrastructure\Taobao.Infrastructure.xml" target="lib\net35\Taobao.Infrastructure.xml" />
+	<file src="Infrastructure\Taobao.Infrastructure.pdb" target="lib\net35\Taobao.Infrastructure.pdb" />
+	
+    <file src="Infrastructure\net40\Taobao.Infrastructure.dll" target="lib\net40\Taobao.Infrastructure.dll" />
+    <file src="Infrastructure\net40\Taobao.Infrastructure.xml" target="lib\net40\Taobao.Infrastructure.xml" />
+	<file src="Infrastructure\net40\Taobao.Infrastructure.pdb" target="lib\net40\Taobao.Infrastructure.pdb" />
+  </files>
+</package>
