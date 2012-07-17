@@ -1,0 +1,16 @@
+#folders
+external-work
+build
+packages
+
+# dotnet
+Debug
+bin
+obj
+*.suo
+*.user
+*.sln.cache
+TestResult.xml
+
+#cpp
+ipch
