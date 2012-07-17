@@ -5,6 +5,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Core", "src\CodeS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Core.Castles", "src\CodeSharp.Core.Castles\CodeSharp.Core.Castles.csproj", "{BF4A398D-0392-4557-840E-C0E6302E6204}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{E97700A4-A283-46B7-8B25-73E79FEC7FA7}"
+	ProjectSection(SolutionItems) = preProject
+		build.bat = build.bat
+		CodeSharp.Core.2.0.nuspec = CodeSharp.Core.2.0.nuspec
+		CodeSharp.Core.Castles.2.0.nuspec = CodeSharp.Core.Castles.2.0.nuspec
+		nant.build = nant.build
+		nuget.install.bat = nuget.install.bat
+		pack.bat = pack.bat
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<project name="codesharp" default="clean">
+  <property name="args0" value="" dynamic="true"/>
+  <property name="args1" value="" dynamic="true"/>
+  <!--path-->
+  <property name="dir" value="."/>
+  <property name="dir.tools" value="..\external-work\tools"/>
+  <property name="build.base" value="build"/>
+  <property name="build.absolutepath" value="${path::get-full-path(build.base)}" />
+  <!--nuget-->
+  <property name="nuget" value="${path::get-full-path(dir.tools)}" />
+  <property name="nuget.packages" value="${dir}\packages" />
+  <property name="nuget.cache" value="C:\Users\${environment::get-user-name()}\AppData\Local\NuGet\Cache" />
+  <property name="nuget.install" value="${dir}\nuget.install.bat" />
+  <property name="nuget.params.install" value="${nuget} ${path::get-full-path(nuget.packages)}" />
+  <!--msbuild-->
+  <property name="msbuild" value="C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" />
+  <property name="msbuild.config" value="Release" dynamic="true"/>
+  <property name="msbuild.params"
+            value="/t:rebuild 
+            /p:Configuration=${msbuild.config} 
+            /t:ResolveReferences" />
+  <property name="msbuild.params.weboutput" value="/t:_CopyWebApplication /p:WebProjectOutputDir=${build.absolutepath}" />
+  <property name="msbuild.params.mvcoutput" value="/t:_CopyWebApplication /p:mvcbuildviews=true /p:WebProjectOutputDir=${build.absolutepath}" />
+  <property name="msbuild.params.output" value="/p:OutputPath=${build.absolutepath}" />
+  <!--NUnit-->
+  <property name="nunit" value="${path::get-full-path(dir.tools)}\nunit\nunit-console.exe" />
+  
+  <!--clean-->
+  <target name="clean" description="clean build folder">
+    <delete dir="${build.absolutepath}"></delete>
+  </target>
+  <target name="nuget" description="nuget install and update">
+    <delete dir="${nuget.packages}"></delete>
+    <delete dir="${nuget.cache}"></delete>
+    <exec program="${nuget.install}"
+          commandline="${nuget.params.install}"
+          workingdir="${dir}" />
+  </target>
+
+  <target name="core_net40">
+    <exec program="${msbuild}"
+          commandline="${msbuild.params} ${msbuild.params.output}
+          /p:DocumentationFile=${build.absolutepath}\CodeSharp.Core.Xml"
+          workingdir="${dir}\src\CodeSharp.Core" />
+    <copy todir="${build.absolutepath}\lib\net40">
+      <fileset basedir="${build.absolutepath}">
+        <include name="CodeSharp.Core.dll" />
+        <include name="CodeSharp.Core.pdb" />
+        <include name="CodeSharp.Core.Xml" />
+      </fileset>
+    </copy>
+    <if test="${args0=='pack'}">
+      <exec program="${nuget}\nuget"
+          commandline="pack CodeSharp.Core.2.0.nuspec -outputdirectory packages"
+          workingdir="${dir}" />
+    </if>
+    <if test="${args1=='push'}">
+      <exec program="${nuget}\nuget"
+          commandline="setApiKey 639c61cf-6e89-4a98-a69a-31b6fa0e2378"
+          workingdir="${dir}\packages" />
+      <exec program="${nuget}\nuget"
+          commandline="push CodeSharp.Core.2.0.nupkg"
+          workingdir="${dir}\packages" />
+    </if>
+  </target>
+  <target name="core_castle_net40">
+    <exec program="${msbuild}"
+          commandline="${msbuild.params} ${msbuild.params.output}
+          /p:DocumentationFile=${build.absolutepath}\CodeSharp.Core.Castles.Xml"
+          workingdir="${dir}\src\CodeSharp.Core.Castles" />
+    <copy todir="${build.absolutepath}\lib\net40">
+      <fileset basedir="${build.absolutepath}">
+        <include name="CodeSharp.Core.Castles.dll" />
+        <include name="CodeSharp.Core.Castles.pdb" />
+        <include name="CodeSharp.Core.Castles.Xml" />
+      </fileset>
+    </copy>
+    <if test="${args0=='pack'}">
+      <exec program="${nuget}\nuget"
+          commandline="pack CodeSharp.Core.Castles.2.0.nuspec -outputdirectory packages"
+          workingdir="${dir}" />
+    </if>
+    <if test="${args1=='push'}">
+      <exec program="${nuget}\nuget"
+          commandline="setApiKey 639c61cf-6e89-4a98-a69a-31b6fa0e2378"
+          workingdir="${dir}\packages" />
+      <exec program="${nuget}\nuget"
+          commandline="push CodeSharp.Core.Castles.2.0.nupkg"
+          workingdir="${dir}\packages" />
+    </if>
+  </target>
+  
+  <target name="test">
+    <exec program="${msbuild}"
+          commandline="${msbuild.params} ${msbuild.params.output}\core_test"
+          workingdir="${dir}\src\CodeSharp.Core.Test" />
+    <exec program="${nunit}" commandline="CodeSharp.Core.Test.dll" workingdir="${build.absolutepath}\core_test"/>
+  </target>
+
+</project>

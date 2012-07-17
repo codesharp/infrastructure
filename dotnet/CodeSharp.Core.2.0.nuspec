@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>CodeSharp.Core</id>
+    <version>2.0</version>
+    <title>Code# infrastructure</title>
+    <authors>wsky</authors>
+    <owners />
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      CodeSharp.Core.dll
+    </description>
+    <copyright>2012</copyright>
+    <language>zh-CN</language>
+  </metadata>
+  <files>
+    <file src="build\lib\net40\CodeSharp.Core.dll" target="lib\net40\CodeSharp.Core.dll" />
+    <file src="build\lib\net40\CodeSharp.Core.xml" target="lib\net40\CodeSharp.Core.xml" />
+    <file src="build\lib\net40\CodeSharp.Core.pdb" target="lib\net40\CodeSharp.Core.pdb" />
+  </files>
+</package>
