@@ -13,6 +13,7 @@
   <property name="nuget.cache" value="C:\Users\${environment::get-user-name()}\AppData\Local\NuGet\Cache" />
   <property name="nuget.install" value="${dir}\nuget.install.bat" />
   <property name="nuget.params.install" value="${nuget} ${path::get-full-path(nuget.packages)}" />
+  <property name="nuget.params.push" value="-s http://dev.incooper.net/feeds hello1234" />
   <!--msbuild-->
   <property name="msbuild" value="C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" />
   <property name="msbuild.config" value="Release" dynamic="true"/>
@@ -38,55 +39,48 @@
           workingdir="${dir}" />
   </target>
 
+  <target name="all">
+    <call target="core_net40"></call>
+    <call target="core_castle_net40"></call>
+    <call target="framework_net40"></call>
+    <call target="framework_castle_net40"></call>
+  </target>
   <target name="core_net40">
-    <exec program="${msbuild}"
-          commandline="${msbuild.params} ${msbuild.params.output}
-          /p:DocumentationFile=${build.absolutepath}\CodeSharp.Core.Xml"
-          workingdir="${dir}\src\CodeSharp.Core" />
-    <copy todir="${build.absolutepath}\lib\net40">
-      <fileset basedir="${build.absolutepath}">
-        <include name="CodeSharp.Core.dll" />
-        <include name="CodeSharp.Core.pdb" />
-        <include name="CodeSharp.Core.Xml" />
-      </fileset>
-    </copy>
-    <if test="${args0=='pack'}">
-      <exec program="${nuget}\nuget"
-          commandline="pack CodeSharp.Core.2.0.nuspec -outputdirectory packages"
-          workingdir="${dir}" />
-    </if>
-    <if test="${args1=='push'}">
-      <exec program="${nuget}\nuget"
-          commandline="setApiKey 639c61cf-6e89-4a98-a69a-31b6fa0e2378"
-          workingdir="${dir}\packages" />
-      <exec program="${nuget}\nuget"
-          commandline="push CodeSharp.Core.2.0.nupkg"
-          workingdir="${dir}\packages" />
-    </if>
+    <property name="libname" value="CodeSharp.Core" />
+    <call target="lib_net40"></call>
   </target>
   <target name="core_castle_net40">
+    <property name="libname" value="CodeSharp.Core.Castles" />
+    <call target="lib_net40"></call>
+  </target>
+  <target name="framework_net40">
+    <property name="libname" value="CodeSharp.Framework.Castles" />
+    <call target="lib_net40"></call>
+  </target>
+  <target name="framework_castle_net40">
+    <property name="libname" value="CodeSharp.Framework" />
+    <call target="lib_net40"></call>
+  </target>
+  <target name="lib_net40">
     <exec program="${msbuild}"
           commandline="${msbuild.params} ${msbuild.params.output}
-          /p:DocumentationFile=${build.absolutepath}\CodeSharp.Core.Castles.Xml"
-          workingdir="${dir}\src\CodeSharp.Core.Castles" />
+          /p:DocumentationFile=${build.absolutepath}\${libname}.Xml"
+          workingdir="${dir}\src\${libname}" />
     <copy todir="${build.absolutepath}\lib\net40">
       <fileset basedir="${build.absolutepath}">
-        <include name="CodeSharp.Core.Castles.dll" />
-        <include name="CodeSharp.Core.Castles.pdb" />
-        <include name="CodeSharp.Core.Castles.Xml" />
+        <include name="${libname}.dll" />
+        <include name="${libname}.pdb" />
+        <include name="${libname}.Xml" />
       </fileset>
     </copy>
     <if test="${args0=='pack'}">
       <exec program="${nuget}\nuget"
-          commandline="pack CodeSharp.Core.Castles.2.0.nuspec -outputdirectory packages"
+          commandline="pack ${libname}.2.0.nuspec -outputdirectory packages"
           workingdir="${dir}" />
     </if>
     <if test="${args1=='push'}">
       <exec program="${nuget}\nuget"
-          commandline="setApiKey 639c61cf-6e89-4a98-a69a-31b6fa0e2378"
-          workingdir="${dir}\packages" />
-      <exec program="${nuget}\nuget"
-          commandline="push CodeSharp.Core.Castles.2.0.nupkg"
+          commandline="push ${libname}.2.0.nupkg ${nuget.params.push}"
           workingdir="${dir}\packages" />
     </if>
   </target>

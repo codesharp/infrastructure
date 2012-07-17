@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>CodeSharp.Package.AspNetMvc3</id>
+    <version>3.0</version>
+    <title>Asp.Net Mvc3 for .NET4</title>
+    <authors>MS</authors>
+    <owners />
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+		Asp.Net Mvc3
+		System.Web.Mvc.dll
+    </description>
+    <copyright>2011</copyright>
+    <language>zh-CN</language>
+  </metadata>
+  <files>
+    <file src="gac\mvc3.0\System.Web.Mvc.dll" target="lib\net40\System.Web.Mvc.dll" />
+	  <file src="gac\mvc3.0\System.Web.Mvc.xml" target="lib\net40\System.Web.Mvc.xml" />
+  </files>
+</package>

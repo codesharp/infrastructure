@@ -10,6 +10,7 @@ obj
 *.suo
 *.user
 *.sln.cache
+*.nupkg
 TestResult.xml
 
 #cpp

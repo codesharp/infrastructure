@@ -1,15 +1,14 @@
-Infrastructure Upgrade History
+#Infrastructure Upgrade History
 
 ====
 
-## dotnet changes
+## .Net Changes
 
-* 201207 by wsky
-====
+#### 201207 by wsky
 
-original dotnet infrastructure from tb upgrade from v1.x to v2.0, and rename to CodeSharp.Core.*
+Original dotnet infrastructure from "tb" upgrade, from v1.x to v2.0, and renamed to CodeSharp.*
 
-license change to LGPL?
+License change to LGPL?
 
 - Castle 2.x -> 3.x
 	- remove Castle.DynamicProxy
@@ -35,6 +34,7 @@ license change to LGPL?
 		- see http://mausch.github.com/nhibernate-3.2.0GA/html/d92f91a7-5663-f481-1bd7-3625741962c2.htm
 	- ComponentUnregistered -> X
 	- RemoveComponent -> X
+	- Castle.Facilities.FactorySupport.FactorySupportFacility -> X
 	- Kernel[key] obsolete
 	- Multi service exposed: ComponentModel.Service -> ComponentModel.Services
 	- improved: 
@@ -61,9 +61,9 @@ license change to LGPL?
 
 - NServiceBus
 
-- 
+- Quartz.Net
 
-# obj-c
+## obj-c
 
 
 

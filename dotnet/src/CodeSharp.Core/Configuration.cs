@@ -14,7 +14,7 @@ using CodeSharp.Core.Utils;
 
 namespace CodeSharp.Core
 {
-    /// <summary>为应用的提供的基础框架配置
+    /// <summary>基础框架配置
     /// </summary>
     public class Configuration
     {
@@ -355,7 +355,7 @@ namespace CodeSharp.Core
         /// <param name="versionFlag">配置版本 如：Debug Release </param>
         /// <param name="folder">指定生成配置文件的目录 如：c://application_config</param>
         /// <param name="assembly">指定配置文件所在的程序集</param>
-        /// <param name="nameSpace">指定配置文件的命名空间 如：Taobao.BusinessFramework.ConfigFiles</param>
+        /// <param name="nameSpace">指定配置文件的命名空间 如：BusinessFramework.ConfigFiles</param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException">不可重复初始化配置</exception>
         public static Configuration ConfigWithEmbeddedXml(string versionFlag
@@ -377,7 +377,7 @@ namespace CodeSharp.Core
         /// <param name="versionFlag">配置版本 如：Debug Release </param>
         /// <param name="folder">指定生成配置文件的目录 如：c://application_config</param>
         /// <param name="assembly">指定配置文件所在的程序集</param>
-        /// <param name="nameSpace">指定配置文件的命名空间 如：Taobao.BusinessFramework.ConfigFiles</param>
+        /// <param name="nameSpace">指定配置文件的命名空间 如：BusinessFramework.ConfigFiles</param>
         /// <param name="parameters">自定义模板参数，用于替换XML文件中的标记部分</param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException">不可重复初始化配置</exception>

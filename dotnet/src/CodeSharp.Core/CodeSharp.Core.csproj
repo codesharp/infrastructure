@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,10 +41,43 @@
   <ItemGroup>
     <Compile Include="ComponentAttribute.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="DefaultLogger.cs" />
+    <Compile Include="DefaultLoggerFactory.cs" />
     <Compile Include="DomainBase\EntityBase.cs" />
     <Compile Include="DomainBase\IAggregateRoot.cs" />
     <Compile Include="DomainBase\IEntity.cs" />
     <Compile Include="ILog.cs" />
+    <Compile Include="includes\Common.Logging\ConfigurationException.cs" />
+    <Compile Include="includes\Common.Logging\ConfigurationSectionHandler.cs" />
+    <Compile Include="includes\Common.Logging\Configuration\ArgUtils.cs" />
+    <Compile Include="includes\Common.Logging\Configuration\DefaultConfigurationReader.cs" />
+    <Compile Include="includes\Common.Logging\Configuration\LogSetting.cs" />
+    <Compile Include="includes\Common.Logging\Configuration\NamespaceDoc.cs" />
+    <Compile Include="includes\Common.Logging\CoverageExcludeAttribute.cs" />
+    <Compile Include="includes\Common.Logging\Factory\AbstractCachingLoggerFactoryAdapter.cs" />
+    <Compile Include="includes\Common.Logging\Factory\AbstractLogger.cs" />
+    <Compile Include="includes\Common.Logging\Factory\NamespaceDoc.cs" />
+    <Compile Include="includes\Common.Logging\FormatMessageHandler.cs" />
+    <Compile Include="includes\Common.Logging\IConfigurationReader.cs" />
+    <Compile Include="includes\Common.Logging\ILog.cs" />
+    <Compile Include="includes\Common.Logging\ILoggerFactoryAdapter.cs" />
+    <Compile Include="includes\Common.Logging\LogLevel.cs" />
+    <Compile Include="includes\Common.Logging\LogManager.cs" />
+    <Compile Include="includes\Common.Logging\NamespaceDoc.cs" />
+    <Compile Include="includes\Common.Logging\NamespaceDoc_Introduction.cs" />
+    <Compile Include="includes\Common.Logging\Simple\AbstractSimpleLogger.cs" />
+    <Compile Include="includes\Common.Logging\Simple\AbstractSimpleLoggerFactoryAdapter.cs" />
+    <Compile Include="includes\Common.Logging\Simple\CapturingLogger.cs" />
+    <Compile Include="includes\Common.Logging\Simple\CapturingLoggerEvent.cs" />
+    <Compile Include="includes\Common.Logging\Simple\CapturingLoggerFactoryAdapter.cs" />
+    <Compile Include="includes\Common.Logging\Simple\CommonLoggingTraceListener.cs" />
+    <Compile Include="includes\Common.Logging\Simple\ConsoleOutLogger.cs" />
+    <Compile Include="includes\Common.Logging\Simple\ConsoleOutLoggerFactoryAdapter.cs" />
+    <Compile Include="includes\Common.Logging\Simple\NamespaceDoc.cs" />
+    <Compile Include="includes\Common.Logging\Simple\NoOpLogger.cs" />
+    <Compile Include="includes\Common.Logging\Simple\NoOpLoggerFactoryAdapter.cs" />
+    <Compile Include="includes\Common.Logging\Simple\TraceLogger.cs" />
+    <Compile Include="includes\Common.Logging\Simple\TraceLoggerFactoryAdapter.cs" />
     <Compile Include="Interfaces\IDependencyResolver.cs" />
     <Compile Include="LogWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,6 +93,7 @@
   <ItemGroup>
     <None Include="README.md" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

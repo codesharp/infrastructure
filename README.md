@@ -1,8 +1,10 @@
-# codesharp infrastructure & toolkit
+# CodeSharp Infrastructure && Toolkit
 
 ==============
 
 ## dotnet(c#)
+
+Get by Nuget https://nuget.org/packages?q=codesharp
 
 * Core
 	- CodeSharp.Core
@@ -11,14 +13,16 @@
 	- CodeSharp.Core
 
 * Business Framework
-	- CodeSharp.framework
-	- CodeSharp.framework.Casltes
+	- CodeSharp.Framework
+	- CodeSharp.Framework.Casltes
 
+*
+	
 ## obj-c
 
 ## nodejs
 
 ## java
 
-## license
+## License
 

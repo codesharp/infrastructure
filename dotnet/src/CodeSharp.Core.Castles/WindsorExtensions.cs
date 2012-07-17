@@ -23,12 +23,10 @@ namespace CodeSharp.Core.Castles
     public static class WindsorExtensions
     {
         private static readonly string _slot = "____IgnoreWhenRegister";
-        private static readonly string _defaultComponentAttribute = "defaultComponent";
         private static ILog _log { get { return DependencyResolver.Resolve<ILoggerFactory>().Create(typeof(WindsorExtensions)); } }
 
         #region LoggerFactory
-        /// <summary>
-        /// 设置Log4NetLoggerFactory为日志工具
+        /// <summary>设置Log4NetLoggerFactory为日志工具
         /// <remarks>log4net需要在外部初始化</remarks>
         /// </summary>
         /// <param name="container"></param>
@@ -40,8 +38,7 @@ namespace CodeSharp.Core.Castles
                 .LifeStyle.Singleton);
             return container;
         }
-        /// <summary>
-        /// 设置Log4NetLoggerFactory为日志工具
+        /// <summary>设置Log4NetLoggerFactory为日志工具
         /// <remarks>log4net需要在外部初始化</remarks>
         /// </summary>
         /// <param name="container"></param>
@@ -72,61 +69,8 @@ namespace CodeSharp.Core.Castles
 
         //常规依赖注入
 
-        #region 注册Controller
-        /// <summary>
-        /// 注册Controller
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="container"></param>
-        /// <returns></returns>
-        public static IWindsorContainer RegisterController<T>(this IWindsorContainer container)
-        {
-            container.RegisterControllers(typeof(T));
-            return container;
-        }
-        /// <summary>
-        /// 注册Controller
-        /// </summary>
-        /// <param name="container"></param>
-        /// <param name="assemblies"></param>
-        /// <returns></returns>
-        public static IWindsorContainer RegisterControllers(this IWindsorContainer container, params Assembly[] assemblies)
-        {
-            container.RegisterFromInterface(Util.IsController, assemblies);
-            return container;
-            //if (assemblies != null)
-            //    assemblies.ToList().ForEach(assembly => container.RegisterControllers(assembly.GetExportedTypes()));
-            //return container;
-        }
-        /// <summary>
-        /// 注册Controller
-        /// </summary>
-        /// <param name="container"></param>
-        /// <param name="controllerTypes"></param>
-        /// <returns></returns>
-        public static IWindsorContainer RegisterControllers(this IWindsorContainer container, params Type[] controllerTypes)
-        {
-            container.RegisterFromInterface(Util.IsController, controllerTypes);
-            return container;
-            //if (controllerTypes != null)
-            //{
-            //    controllerTypes.ToList().ForEach(type =>
-            //    {
-            //        if (Util.IsController(type))
-            //            container.Register(Component
-            //                .For(type)
-            //                .Named(type.FullName.ToLower())
-            //                .Parameters(GenerateParameters(type))
-            //                .LifeStyle.Transient);
-            //    });
-            //}
-            //return container;
-        }
-        #endregion
-
         #region 注册Repository
-        /// <summary>
-        /// 注册符合约定的Repository
+        /// <summary>注册符合约定的Repository
         /// <remarks>约定为TestRepository</remarks>
         /// </summary>
         /// <param name="container"></param>
@@ -146,8 +90,7 @@ namespace CodeSharp.Core.Castles
             container.RegisterFromInterface(Util.IsRepository, assemblies);
             return container;
         }
-        /// <summary>
-        /// 注册符合约定的Repository
+        /// <summary>注册符合约定的Repository
         /// <remarks>约定为TestRepository</remarks>
         /// </summary>
         /// <param name="container"></param>
@@ -158,8 +101,7 @@ namespace CodeSharp.Core.Castles
             container.RegisterFromInterface(Util.IsRepository, types);
             return container;
         }
-        /// <summary>
-        /// 注册符合约定的Repository
+        /// <summary>注册符合约定的Repository
         /// <remarks>约定为TestRepository</remarks>
         /// </summary>
         /// <param name="container"></param>
@@ -171,8 +113,7 @@ namespace CodeSharp.Core.Castles
             container.RegisterFromInterface(Util.IsRepository, assemblies, interceptors);
             return container;
         }
-        /// <summary>
-        /// 注册符合约定的Repository
+        /// <summary>注册符合约定的Repository
         /// <remarks>约定为TestRepository</remarks>
         /// </summary>
         /// <param name="container"></param>
@@ -187,8 +128,7 @@ namespace CodeSharp.Core.Castles
         #endregion
 
         #region 注册Service
-        /// <summary>
-        /// 注册符合约定的Service
+        /// <summary>注册符合约定的Service
         /// <remarks>约定为TestService</remarks>
         /// </summary>
         /// <param name="container"></param>
@@ -199,8 +139,7 @@ namespace CodeSharp.Core.Castles
             container.RegisterFromInterface(Util.IsService, assemblies);
             return container;
         }
-        /// <summary>
-        /// 注册符合约定的Services
+        /// <summary>注册符合约定的Services
         /// </summary>
         /// <param name="container"></param>
         /// <param name="types"></param>
@@ -210,8 +149,7 @@ namespace CodeSharp.Core.Castles
             container.RegisterFromInterface(Util.IsService, types);
             return container;
         }
-        /// <summary>
-        /// 注册符合约定的Services
+        /// <summary>注册符合约定的Services
         /// </summary>
         /// <param name="container"></param>
         /// <param name="assemblies"></param>
@@ -222,8 +160,7 @@ namespace CodeSharp.Core.Castles
             container.RegisterFromInterface(Util.IsService, assemblies, interceptors);
             return container;
         }
-        /// <summary>
-        /// 注册符合约定的Services
+        /// <summary>注册符合约定的Services
         /// </summary>
         /// <param name="container"></param>
         /// <param name="types"></param>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>CodeSharp.Package.AspNetWebPage</id>
+    <version>1.0</version>
+    <title>AspNet WebPages for asp.net mvc3 .NET4</title>
+    <authors>MS</authors>
+    <owners />
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      WebPages for asp.net4/mvc3
+      Microsoft.Web.Infrastructure.dll
+      System.Web.Helpers.dll
+      System.Web.Razor.dll
+      System.Web.WebPages.Administration.dll
+      System.Web.WebPages.Deployment.dll
+      System.Web.WebPages.dll
+      System.Web.WebPages.Razor.dll
+    </description>
+    <copyright>2011</copyright>
+    <language>zh-CN</language>
+  </metadata>
+  <files>
+    <file src="gac\WebPage1.0\Microsoft.Web.Infrastructure.dll" target="lib\net40\Microsoft.Web.Infrastructure.dll" />
+	  <file src="gac\WebPage1.0\Microsoft.Web.Infrastructure.xml" target="lib\net40\Microsoft.Web.Infrastructure.xml" />
+
+    <file src="gac\WebPage1.0\System.Web.Helpers.dll" target="lib\net40\System.Web.Helpers.dll" />
+    <file src="gac\WebPage1.0\System.Web.Helpers.xml" target="lib\net40\System.Web.Helpers.xml" />
+
+    <file src="gac\WebPage1.0\System.Web.Razor.dll" target="lib\net40\System.Web.Razor.dll" />
+    <file src="gac\WebPage1.0\System.Web.Razor.xml" target="lib\net40\System.Web.Razor.xml" />
+
+    <file src="gac\WebPage1.0\System.Web.WebPages.Administration.dll" target="lib\net40\System.Web.WebPages.Administration.dll" />
+
+    <file src="gac\WebPage1.0\System.Web.WebPages.Deployment.dll" target="lib\net40\System.Web.WebPages.Deployment.dll" />
+    <file src="gac\WebPage1.0\System.Web.WebPages.Deployment.xml" target="lib\net40\System.Web.WebPages.Deployment.xml" />
+
+    <file src="gac\WebPage1.0\System.Web.WebPages.dll" target="lib\net40\System.Web.WebPages.dll" />
+    <file src="gac\WebPage1.0\System.Web.WebPages.xml" target="lib\net40\System.Web.WebPages.xml" />
+
+    <file src="gac\WebPage1.0\System.Web.WebPages.Razor.dll" target="lib\net40\System.Web.WebPages.Razor.dll" />
+    <file src="gac\WebPage1.0\System.Web.WebPages.Razor.xml" target="lib\net40\System.Web.WebPages.Razor.xml" />
+	
+	<file src="gac\WebPage1.0\NuGet.Core.dll" target="lib\net40\NuGet.Core.dll" />
+  </files>
+</package>
