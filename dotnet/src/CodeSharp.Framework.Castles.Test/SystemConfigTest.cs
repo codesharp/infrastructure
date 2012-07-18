@@ -29,6 +29,18 @@ namespace CodeSharp.Framework.Castles.Test
 
             Assert.DoesNotThrow(() => DependencyResolver.Resolve<ITestService>());
 
+            Assert.DoesNotThrow(() => DependencyResolver.Resolve<NHibernate.ISessionFactory>());
+
+            //NH Tests
+            var e = new TestEntity("abc");
+            var s = DependencyResolver.Resolve<ITestService>(); 
+            s.Create(e);
+            DependencyResolver.Resolve<Castle.Facilities.NHibernateIntegration.ISessionManager>().OpenSession().Evict(e);
+            var e2= s.Get(e.ID);
+            //private setter?
+            Assert.AreEqual(e.Name, e2.Name);
+            Assert.AreEqual("abc", e2.Name);
+
             Assert.DoesNotThrow(() => SystemConfig.Cleanup());
         }
     }

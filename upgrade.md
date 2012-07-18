@@ -49,7 +49,15 @@ License change to LGPL?
 	- update to new version sourcecode and need patch
 	- https://github.com/castleproject/Castle.Facilities.NHibernateIntegration-READONLY
 	- http://issues.castleproject.org/issue/FACILITIES-156
-
+	- "No ISessionFactory implementation associated with the given alias: nh.facility.default"
+		- Castle.Facilities.NHibernateIntegration.Internal.SessionFactoryActivator not work well 
+		- override Create(CreationContext context) -> override Create(CreationContext context, Burden burden)
+		- need add "burden.SetRootInstance(instance);"
+		- see https://gist.github.com/3137006
+		- see changes https://github.com/castleproject/Castle.Windsor-READONLY/blob/master/src/Castle.Windsor/MicroKernel/ComponentActivator/AbstractComponentActivator.cs
+		- 2.x is https://github.com/castleproject/Castle.Windsor-READONLY/blob/2.5.x/src/Castle.Windsor/MicroKernel/ComponentActivator/AbstractComponentActivator.cs
+		- see our bugfix commits 
+		
 - Castle.Facilities.Logging
 	- bugfix " There is already a component with that name". update "AddComponentInstance" to "Component.For"
 	- kernel[key] -> Resolve()
@@ -61,6 +69,17 @@ License change to LGPL?
 	- remove Antlr3.Runtime
 	- nuget: NHibernate 3.3.1.4000
 	- nuget: Iesi.Collections 3.2.0.4000
+	- public virtual string Name { get; private set; } not work!
+		- *use_proxy_validator*  Enabled by default in nh3.x
+		- must Not.LazyLoad() or use_proxy_validator = false to avoid this
+		- see http://stackoverflow.com/questions/2339264/property-access-strategies-in-nhibernate
+		- see http://nhforge.org/doc/nh/en/index.html#mapping-declaration-property
+		- see http://stackoverflow.com/questions/741489/ignore-public-internal-fields-for-nhibernate-proxy
+		- see https://github.com/search?langOverride=&q=use_proxy_validator&repo=&start_value=1&type=Code
+		- see http://www.nhforge.org/doc/nh/en/index.html nh3.3 refer, search use_proxy_validator
+		- https://www.google.com/webhp?sourceid=chrome-instant&ix=seb&ie=UTF-8&ion=1#hl=en&gs_nf=1&tok=YnGhj1tw8Ag-CtBRPDc_-Q&pq=nhibernate%20use_proxy_validator&cp=11&gs_id=17&xhr=t&q=nhibernate+proxy+validator&pf=p&newwindow=1&sclient=psy-ab&oq=nhibernate+proxy_validator&gs_l=&pbx=1&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.,cf.osb&fp=f2e1c51fde2e6b7d&ix=seb&ion=1&biw=1920&bih=955&bs=1
+		- http://stackoverflow.com/questions/1485127/nhibernate-proxy-validator-changes-in-2-1
+		- http://davybrion.com/blog/2009/03/must-everything-be-virtual-with-nhibernate/
 
 - FluentNHibernate 1.1 -> 1.3
 	- nuget: FluentNHibernate 1.3.0.733

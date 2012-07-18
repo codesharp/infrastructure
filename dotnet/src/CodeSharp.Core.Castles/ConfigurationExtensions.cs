@@ -10,6 +10,7 @@ using Castle.Windsor;
 using Castle.Windsor.Configuration.Interpreters;
 using Castle.Windsor.Installer;
 using CodeSharp.Core.Services;
+using castleConfig = Castle.Windsor.Installer.Configuration;
 
 namespace CodeSharp.Core.Castles
 {
@@ -37,7 +38,7 @@ namespace CodeSharp.Core.Castles
             var container = new WindsorContainer();
             //从配置文件初始化
             container.Install(new ConfigurationInstaller(new XmlInterpreter()));
-
+            
             var resolver = new WindsorResolver(container);
             //设置解释器实例
             configuration.Resolver(resolver);

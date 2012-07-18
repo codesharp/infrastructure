@@ -83,3 +83,10 @@ Alpha 1
 - First release
 
 Future modifications - after the first release - shall be tracked in this file
+
+20120718 by wsky
+===============
+
+- bugfix "No ISessionFactory implementation associated with the given alias: nh.facility.default"
+  SessionFactoryActivator.create override incorrectly, then the sessionFactory were not fill to Burden.
+  see https://gist.github.com/3137006

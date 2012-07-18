@@ -74,43 +74,117 @@
     <Compile Include="includes\Castle.Facilities.AutoTx\TransactionMetaInfoStore.cs" />
     <Compile Include="includes\Castle.Facilities.Logging\LoggerResolver.cs" />
     <Compile Include="includes\Castle.Facilities.Logging\LoggingFacility.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Builders\DefaultConfigurationBuilder.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Builders\PersistentConfigurationBuilder.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Builders\XmlConfigurationBuilder.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Dao\DataException.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Dao\IGenericDao.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Dao\INHibernateGenericDao.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Dao\NHibernateGenericDao.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Web\SessionWebModule.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Constants.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\DefaultSessionManager.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\IConfigurationBuilder.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\IConfigurationContributor.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\IConfigurationPersister.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\Empty.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\FileAssemblyResource.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\NHSessionComponentInspector.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\NHSessionInterceptor.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\ResourceAdapter.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\SessionDelegate.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\SessionDisposeSynchronization.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\SessionFactoryActivator.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\SessionFactoryResolver.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\StatelessSessionDelegate.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\StatelessSessionDisposeSynchronization.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\ISessionFactoryResolver.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\ISessionManager.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\ISessionStore.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\NHibernateFacility.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\NHSessionAttribute.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Persisters\DefaultConfigurationPersister.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\SessionStores\AbstractDictStackSessionStore.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\SessionStores\AbstractSessionStore.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\SessionStores\CallContextSessionStore.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\SessionStores\WebSessionStore.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Util\FieldInfoCollection.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Util\ReflectionUtil.cs" />
-    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Util\ReflectionUtility.cs" />
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Builders\DefaultConfigurationBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Builders\PersistentConfigurationBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Builders\XmlConfigurationBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Dao\DataException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Dao\IGenericDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Dao\INHibernateGenericDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Dao\NHibernateGenericDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Components\Web\SessionWebModule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Constants.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\DefaultSessionManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\IConfigurationBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\IConfigurationContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\IConfigurationPersister.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\Empty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\FileAssemblyResource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\NHSessionComponentInspector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\NHSessionInterceptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\ResourceAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\SessionDelegate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\SessionDisposeSynchronization.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\SessionFactoryActivator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\SessionFactoryResolver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\StatelessSessionDelegate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Internal\StatelessSessionDisposeSynchronization.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\ISessionFactoryResolver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\ISessionManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\ISessionStore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\NHibernateFacility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\NHSessionAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Persisters\DefaultConfigurationPersister.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\SessionStores\AbstractDictStackSessionStore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\SessionStores\AbstractSessionStore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\SessionStores\CallContextSessionStore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\SessionStores\WebSessionStore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Util\FieldInfoCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Util\ReflectionUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="includes\Castle.Facilities.NHibernateIntegration\Util\ReflectionUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="includes\Castle.Services.Logging.log4netIntegration\ExtendedLog4netFactory.cs" />
     <Compile Include="includes\Castle.Services.Logging.log4netIntegration\ExtendedLog4netLogger.cs" />
     <Compile Include="includes\Castle.Services.Logging.log4netIntegration\GlobalContextProperties.cs" />

@@ -16,5 +16,7 @@ infrastructure for server side
 		- AddComponent
 		- kernel[key]
 		- new InterceptorReference(typeof(TransactionInterceptor) -> new InterceptorReference("transaction.interceptor")
+- Castle.Facilities.NHibernateIntegration
+	- bugfix see changes.txt
 
 

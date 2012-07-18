@@ -65,10 +65,19 @@ namespace Castle.Facilities.NHibernateIntegration.Internal
 		/// <returns></returns>
         public override object Create(CreationContext context, Burden burden)
 		{
+            //HACK:bugfix SessionFactoryActivator override Create with burden
 			RaiseCreatingSessionFactory();
 			var configuration = Model.ExtendedProperties[Constants.SessionFactoryConfiguration]
 			                    as Configuration;
-			return configuration.BuildSessionFactory();
+			var f= configuration.BuildSessionFactory();
+            burden.SetRootInstance(f);
+            //onCreation(model, instance);
+            return f;
 		}
+
+        protected override object CreateInstance(CreationContext context, ConstructorCandidate constructor, object[] arguments)
+        {
+            return base.CreateInstance(context, constructor, arguments);
+        }
 	}
 }
