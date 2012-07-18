@@ -1,4 +1,4 @@
-# CodeSharp .Net/Mono
+# CodeSharp Infrastructure .Net/Mono c#
 
 =====
 
@@ -15,5 +15,10 @@
 	- CodeSharp.Framework.Casltes
 
 ## NET40
+
+### Build
+
+	- build all
+	- build test
 
 ## MONO
