@@ -4,7 +4,7 @@
 
 ## dotnet(c#)
 
-Get by Nuget https://nuget.org/packages?q=codesharp
+Publish on Nuget
 
 * Core
 	- CodeSharp.Core

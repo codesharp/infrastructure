@@ -36,16 +36,25 @@ License change to LGPL?
 	- RemoveComponent -> X
 	- Castle.Facilities.FactorySupport.FactorySupportFacility -> X
 	- Kernel[key] obsolete
+	- Kernel.AddComponentInstance obsolete, must change to "Use Register(Component.For(serviceType).Named(key).Instance(instance)) or generic version instead."
 	- Multi service exposed: ComponentModel.Service -> ComponentModel.Services
 	- improved: 
 		- DefaultComponent Change use IsDefault(), "You can force the later-registered component to become the default instance via the method IsDefault."
 		- http://stw.castleproject.org/Windsor.Registering-components-one-by-one.ashx
 		- http://docs.castleproject.org/Windsor.Whats-New-In-Windsor-3.ashx
 		- http://kozmic.pl/2011/03/20/working-with-nhibernate-without-default-constructors/
+
 - Castle.Facilities.NHibernateIntegration
 	- update to new version sourcecode and need patch
 	- https://github.com/castleproject/Castle.Facilities.NHibernateIntegration-READONLY
 	- http://issues.castleproject.org/issue/FACILITIES-156
+
+- Castle.Facilities.Logging
+	- bugfix " There is already a component with that name". update "AddComponentInstance" to "Component.For"
+	- kernel[key] -> Resolve()
+	
+- Castle.Facilities.AutoTx
+	- bugfix " There is already a component with that name". update "AddComponentInstance" to "Component.For"
 	
 - NHibernate 2.1 -> 3.3.1
 	- remove Antlr3.Runtime
