@@ -194,7 +194,8 @@ namespace Castle.Facilities.AutoTx
 			model.Dependencies.Add(
 				new DependencyModel(null, typeof(TransactionInterceptor), false));
 
-			model.Interceptors.AddFirst(new InterceptorReference(typeof(TransactionInterceptor)));
+            //model.Interceptors.AddFirst(new InterceptorReference(typeof(TransactionInterceptor)));
+            model.Interceptors.AddFirst(new InterceptorReference("transaction.interceptor"));//必须声明此名称，否则注册此拦截器时不可Named()
 		}
 	}
 }

@@ -15,5 +15,6 @@ infrastructure for server side
 		- AddComponentInstance
 		- AddComponent
 		- kernel[key]
+		- new InterceptorReference(typeof(TransactionInterceptor) -> new InterceptorReference("transaction.interceptor")
 
 

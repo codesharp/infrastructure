@@ -37,6 +37,7 @@ License change to LGPL?
 	- Castle.Facilities.FactorySupport.FactorySupportFacility -> X
 	- Kernel[key] obsolete
 	- Kernel.AddComponentInstance obsolete, must change to "Use Register(Component.For(serviceType).Named(key).Instance(instance)) or generic version instead."
+		- see https://github.com/codesharp/infrastructure/commit/cc5d88fd47b85df417c1abff9f2360bef1b62da4
 	- Multi service exposed: ComponentModel.Service -> ComponentModel.Services
 	- improved: 
 		- DefaultComponent Change use IsDefault(), "You can force the later-registered component to become the default instance via the method IsDefault."
