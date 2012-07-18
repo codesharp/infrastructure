@@ -91,10 +91,10 @@ namespace CodeSharp.Framework.Web
 </head>
 <body>
     <div style='height:100px'>&nbsp;</div>
-    <div style='background-color:#FEF7DB; border: 1px #FAE8A6 solid; padding: 20px;
+    <div style='background-color:#F2DEDE; border: 1px #EED3D7 solid; padding: 20px;
         margin: auto; width: 700px;'>
-        <h2 style='font-size:13px; color: #804000'>
-            抱歉，您访问的网页发生了错误，请您稍后再试或<a style='color:#000' href='http://wf.taobao.org/new/ApprovalFlow/Default/NewProc?requesttypename=c_WFBugSuggestions'>反馈</a>给我们</h2>
+        <h2 style='font-size:13px; color: #B94A48'>
+            抱歉，您访问的网页发生了错误，请您稍后再试 ^_^</h2>
         <div style='font-size:12px;line-height:20px;'>
             {0}
         </div>

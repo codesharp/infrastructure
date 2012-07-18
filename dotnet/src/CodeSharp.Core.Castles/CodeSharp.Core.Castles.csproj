@@ -119,8 +119,6 @@
     <Compile Include="includes\Castle.Services.Logging.log4netIntegration\ThreadContextProperties.cs" />
     <Compile Include="includes\Castle.Services.Logging.log4netIntegration\ThreadContextStack.cs" />
     <Compile Include="includes\Castle.Services.Logging.log4netIntegration\ThreadContextStacks.cs" />
-    <Compile Include="includes\Castle.Services.Transaction\Attributes\TransactionalAttribute.cs" />
-    <Compile Include="includes\Castle.Services.Transaction\Attributes\TransactionAttribute.cs" />
     <Compile Include="includes\Castle.Services.Transaction\Events\TransactionEventArgs.cs" />
     <Compile Include="includes\Castle.Services.Transaction\Events\TransactionFailedEventArgs.cs" />
     <Compile Include="includes\Castle.Services.Transaction\Exceptions\CommitResourceException.cs" />
@@ -152,7 +150,6 @@
     <Compile Include="includes\Castle.Services.Transaction\IO\PathType.cs" />
     <Compile Include="includes\Castle.Services.Transaction\IO\TxAdapterBase.cs" />
     <Compile Include="includes\Castle.Services.Transaction\IResource.cs" />
-    <Compile Include="includes\Castle.Services.Transaction\IsolationMode.cs" />
     <Compile Include="includes\Castle.Services.Transaction\ISynchronization.cs" />
     <Compile Include="includes\Castle.Services.Transaction\ITransaction.cs" />
     <Compile Include="includes\Castle.Services.Transaction\Managers\Activity.cs" />
@@ -161,8 +158,11 @@
     <Compile Include="includes\Castle.Services.Transaction\Managers\ITransactionManager.cs" />
     <Compile Include="includes\Castle.Services.Transaction\Managers\TLSActivityManager.cs" />
     <Compile Include="includes\Castle.Services.Transaction\Misc\Fun.cs" />
-    <Compile Include="includes\Castle.Services.Transaction\TransactionMode.cs" />
     <Compile Include="includes\Castle.Services.Transaction\TransactionStatus.cs" />
+    <Compile Include="includes\Common.Logging.Log4Net\CommonLoggingAppender.cs" />
+    <Compile Include="includes\Common.Logging.Log4Net\Log4NetLogger.cs" />
+    <Compile Include="includes\Common.Logging.Log4Net\Log4NetLoggerFactoryAdapter.cs" />
+    <Compile Include="includes\Common.Logging.Log4Net\NamespaceDoc.cs" />
     <Compile Include="includes\NHibernate.ByteCode.Castle\LazyInitializer.cs">
       <SubType>Code</SubType>
     </Compile>

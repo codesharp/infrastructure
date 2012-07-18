@@ -49,7 +49,7 @@ namespace Castle.Facilities.AutoTx
 		{
 			if (metaStore == null)
 			{
-				metaStore = (TransactionMetaInfoStore) kernel[typeof(TransactionMetaInfoStore)];
+				metaStore = (TransactionMetaInfoStore) kernel.Resolve<TransactionMetaInfoStore>();
 			}
 
 			if (IsMarkedWithTransactional(model.Configuration))

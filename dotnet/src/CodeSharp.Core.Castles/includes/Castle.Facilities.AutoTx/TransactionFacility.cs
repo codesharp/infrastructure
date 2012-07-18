@@ -12,13 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//changes by wsky 201207
+//changed by wsky 20120718
+//bugfix for castle3.0 Kernel.AddComponentInstance obsolete
 
 using System;
 using System.Linq;
 using Castle.MicroKernel.Facilities;
 using Castle.Services.Transaction;
 using Castle.Services.Transaction.IO;
+using Castle.MicroKernel.Registration;
 
 namespace Castle.Facilities.AutoTx
 {
@@ -63,9 +65,13 @@ namespace Castle.Facilities.AutoTx
 		protected override void Init()
 		{
 			AssertHasDirectories();
-			Kernel.AddComponent("transaction.interceptor", typeof (TransactionInterceptor));
-			Kernel.AddComponent("transaction.MetaInfoStore", typeof (TransactionMetaInfoStore));
-			Kernel.AddComponent("directory.adapter.mappath", typeof (IMapPath), typeof (MapPathImpl));
+
+            Kernel.Register(Component.For<TransactionInterceptor>().Named("transaction.interceptor"));
+            Kernel.Register(Component.For<TransactionMetaInfoStore>().Named("transaction.MetaInfoStore"));
+            Kernel.Register(Component.For<IMapPath>().ImplementedBy<MapPathImpl>().Named("directory.adapter.mappath"));
+            //Kernel.AddComponent("transaction.interceptor", typeof (TransactionInterceptor));
+            //Kernel.AddComponent("transaction.MetaInfoStore", typeof (TransactionMetaInfoStore));
+            //Kernel.AddComponent("directory.adapter.mappath", typeof (IMapPath), typeof (MapPathImpl));
 			
 			RegisterAdapters();
 
@@ -80,12 +86,15 @@ namespace Castle.Facilities.AutoTx
 				!_AllowAccessOutsideRootFolder,
 				RootFolder);
 
-			Kernel.AddComponentInstance("directory.adapter", typeof (IDirectoryAdapter), directoryAdapter);
+            Kernel.Register(Component.For<IDirectoryAdapter>().Instance(directoryAdapter).Named("directory.adapter"));
+			//Kernel.AddComponentInstance("directory.adapter", typeof (IDirectoryAdapter), directoryAdapter);
 
 			var fileAdapter = new FileAdapter(
 				!_AllowAccessOutsideRootFolder,
 				RootFolder);
-			Kernel.AddComponentInstance("file.adapter", typeof (IFileAdapter), fileAdapter);
+
+            Kernel.Register(Component.For<IFileAdapter>().Instance(fileAdapter).Named("file.adapter"));
+			//Kernel.AddComponentInstance("file.adapter", typeof (IFileAdapter), fileAdapter);
 
 			if (Kernel.HasComponent(typeof(ITransactionManager)))
 				fileAdapter.TxManager = directoryAdapter.TxManager = Kernel.Resolve<ITransactionManager>();

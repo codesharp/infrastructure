@@ -203,8 +203,7 @@ namespace CodeSharp.Core
         #endregion
 
         #region 追加配置文件 File()
-        /// <summary>
-        /// 追加配置文件
+        /// <summary>追加配置文件，并替换模板变量
         /// </summary>
         /// <param name="name">生成的文件名</param>
         /// <param name="assembly">资源所在的程序集</param>
@@ -213,13 +212,21 @@ namespace CodeSharp.Core
         /// <returns></returns>
         public Configuration File(string name, Assembly assembly, string resourceName, IDictionary<string, string> parameters)
         {
+            var stream = assembly.GetManifestResourceStream(resourceName);
+
+            if (stream == null)
+            {
+                this._log.WarnFormat("未在程序集中读取到文件{0}", resourceName);
+                return this;
+            }
+
             if (parameters == null || parameters.Keys.Count == 0)
-                return this.File(name, assembly.GetManifestResourceStream(resourceName));
-            using (var reader = new StreamReader(assembly.GetManifestResourceStream(resourceName)))
+                return this.File(name, stream);
+
+            using (var reader = new StreamReader(stream))
                 return this.File(name, reader.ReadToEnd(), parameters);
         }
-        /// <summary>
-        /// 追加配置文件
+        /// <summary>追加配置文件，并替换模板变量
         /// </summary>
         /// <param name="name">生成的文件名</param>
         /// <param name="content">文件内容</param>
@@ -232,8 +239,7 @@ namespace CodeSharp.Core
             using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(content)))
                 return this.File(name, stream);
         }
-        /// <summary>
-        /// 追加配置文件
+        /// <summary>追加配置文件
         /// </summary>
         /// <param name="name">生成的文件名</param>
         /// <param name="content"></param>

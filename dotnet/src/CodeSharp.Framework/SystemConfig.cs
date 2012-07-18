@@ -30,8 +30,13 @@ namespace CodeSharp.Framework
         //文件模板中的变量
         private static readonly string _flag_site = "#{site}";
         private static readonly string _flag_version = "#{version}";
-        //默认的配置文件程序集名称
-        private static readonly string _configFilesAssemblyName = "ConfigFiles";
+        
+        /// <summary>获取或设置默认的配置文件程序集名称
+        /// <remarks>
+        /// 如：默认为ConfigFiles，此时应用路径识别为ConfigFiles.App
+        /// </remarks>
+        /// </summary>
+        public static string ConfigFilesAssemblyName = "ConfigFiles";
 
         //应用配置静态实例
         private static SystemConfig _settings;
@@ -42,7 +47,7 @@ namespace CodeSharp.Framework
             get
             {
                 if (_settings == null)
-                    throw new InvalidOperationException("请先调用Initialize或Confiure执行应用配置框架TBF初始化");
+                    throw new InvalidOperationException("请先调用Initialize或Confiure执行应用配置框架初始化");
                 return _settings;
             }
         }
@@ -119,11 +124,11 @@ namespace CodeSharp.Framework
         public static SystemConfig Configure(string app, string versionFlag)
         {
             if (_settings != null)
-                throw new InvalidOperationException("不能重复初始化配置框架（TBF）");
+                throw new NotSupportedException("不支持重复初始化配置框架");
 
             var flag = Util.GetEnvironmentVersionFlag(versionFlag).ToString();
             //读取专用配置文件程序集
-            var configsAssembly = Assembly.Load(_configFilesAssemblyName);
+            var configsAssembly = Assembly.Load(ConfigFilesAssemblyName);
             //实例化
             _settings = new SystemConfig(app, flag);
             //配置文件变量
@@ -133,13 +138,12 @@ namespace CodeSharp.Framework
                 .ConfigWithEmbeddedXml(null
                 , _folder
                 , configsAssembly
-                , _configFilesAssemblyName + "." + app
+                , ConfigFilesAssemblyName + "." + app
                 , fileParameters);
             //配置项初始化
-            SystemConfig.RenderProperties(_settings, configsAssembly, _configFilesAssemblyName);
+            SystemConfig.RenderProperties(_settings, configsAssembly, ConfigFilesAssemblyName);
             //默认配置文件初始化
-            SystemConfig.RenderFile(_settings, configsAssembly, _configFilesAssemblyName, "log4net.config", fileParameters);
-            SystemConfig.RenderFile(_settings, configsAssembly, _configFilesAssemblyName, "MemCache.config", fileParameters);
+            SystemConfig.RenderFile(_settings, configsAssembly, ConfigFilesAssemblyName, "log4net.config", fileParameters);
             //设置运行时变量
             _settings.FoundationConfig.RuntimeProperties(Util.GetHowToGenerateRuntimeProperties(_settings));
             //启用全局缓存管理
@@ -327,7 +331,7 @@ namespace CodeSharp.Framework
         /// <returns></returns>
         public SystemConfig File(string fileName, IDictionary<string, string> fileParameters)
         {
-            SystemConfig.RenderFile(this, Assembly.Load(_configFilesAssemblyName), _configFilesAssemblyName, fileName, fileParameters);
+            SystemConfig.RenderFile(this, Assembly.Load(ConfigFilesAssemblyName), ConfigFilesAssemblyName, fileName, fileParameters);
             return this;
         }
 

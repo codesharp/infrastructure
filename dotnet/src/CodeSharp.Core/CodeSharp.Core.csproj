@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
@@ -47,6 +48,10 @@
     <Compile Include="DomainBase\IAggregateRoot.cs" />
     <Compile Include="DomainBase\IEntity.cs" />
     <Compile Include="ILog.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Attributes\TransactionalAttribute.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\Attributes\TransactionAttribute.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\IsolationMode.cs" />
+    <Compile Include="includes\Castle.Services.Transaction\TransactionMode.cs" />
     <Compile Include="includes\Common.Logging\ConfigurationException.cs" />
     <Compile Include="includes\Common.Logging\ConfigurationSectionHandler.cs" />
     <Compile Include="includes\Common.Logging\Configuration\ArgUtils.cs" />
@@ -89,6 +94,7 @@
     <Compile Include="Services\ILoggerFactory.cs" />
     <Compile Include="Utils\FileHelper.cs" />
     <Compile Include="Utils\SecurityHelper.cs" />
+    <Compile Include="Utils\Serializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />

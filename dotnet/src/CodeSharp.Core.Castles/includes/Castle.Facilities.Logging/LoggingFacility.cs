@@ -12,6 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//changed by wsky 20120718
+//bugfix for castle3.0 Kernel.AddComponentInstance obsolete
+
 namespace Castle.Facilities.Logging
 {
     using System;
@@ -21,6 +24,7 @@ namespace Castle.Facilities.Logging
     using Castle.MicroKernel;
     using Castle.MicroKernel.Facilities;
     using Castle.MicroKernel.SubSystems.Conversion;
+    using Castle.MicroKernel.Registration;
 
     /// <summary>
     /// The supported <see cref="ILogger"/> implementations
@@ -159,12 +163,16 @@ namespace Castle.Facilities.Logging
             if (logApi == LoggerImplementation.ExtendedNLog || logApi == LoggerImplementation.ExtendedLog4net)
             {
                 ILogger defaultLogger = factory.Create("Default");
-                Kernel.AddComponentInstance("ilogger.default", typeof(IExtendedLogger), defaultLogger);
-                Kernel.AddComponentInstance("ilogger.default.base", typeof(ILogger), defaultLogger);
+
+                Kernel.Register(Component.For<IExtendedLogger>().Instance(defaultLogger as IExtendedLogger).Named("ilogger.default"));
+                Kernel.Register(Component.For<ILogger>().Instance(defaultLogger).Named("ilogger.default.base"));
+                //Kernel.AddComponentInstance("ilogger.default", typeof(IExtendedLogger), defaultLogger);
+                //Kernel.AddComponentInstance("ilogger.default.base", typeof(ILogger), defaultLogger);
             }
             else
             {
-                Kernel.AddComponentInstance("ilogger.default", typeof(ILogger), factory.Create("Default"));
+                Kernel.Register(Component.For<ILogger>().Instance(factory.Create("Default")).Named("ilogger.default"));
+                //Kernel.AddComponentInstance("ilogger.default", typeof(ILogger), factory.Create("Default"));
             }
         }
 
@@ -172,12 +180,15 @@ namespace Castle.Facilities.Logging
         {
             if (logApi == LoggerImplementation.ExtendedNLog || logApi == LoggerImplementation.ExtendedLog4net)
             {
-                Kernel.AddComponentInstance("iloggerfactory", typeof(IExtendedLoggerFactory), factory);
-                Kernel.AddComponentInstance("iloggerfactory.base", typeof(ILoggerFactory), factory);
+                Kernel.Register(Component.For<IExtendedLoggerFactory>().Instance(factory as IExtendedLoggerFactory).Named("iloggerfactory"));
+                Kernel.Register(Component.For<ILoggerFactory>().Instance(factory).Named("iloggerfactory.base"));
+                //Kernel.AddComponentInstance("iloggerfactory", typeof(IExtendedLoggerFactory), factory);
+                //Kernel.AddComponentInstance("iloggerfactory.base", typeof(ILoggerFactory), factory);
             }
             else
             {
-                Kernel.AddComponentInstance("iloggerfactory", typeof(ILoggerFactory), factory);
+                Kernel.Register(Component.For<ILoggerFactory>().Instance(factory).Named("iloggerfactory"));
+                //Kernel.AddComponentInstance("iloggerfactory", typeof(ILoggerFactory), factory);
             }
         }
 

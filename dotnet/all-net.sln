@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Framework.Castles
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{5A08BFBE-DFC8-4B98-8F77-AAFDE7667500}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Framework.Castles.Test", "src\CodeSharp.Framework.Castles.Test\CodeSharp.Framework.Castles.Test.csproj", "{E241E622-5B24-4389-9855-E1E5D375DFB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{999C2B16-3630-4A88-95DE-6E53C1965D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{999C2B16-3630-4A88-95DE-6E53C1965D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{999C2B16-3630-4A88-95DE-6E53C1965D61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E241E622-5B24-4389-9855-E1E5D375DFB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E241E622-5B24-4389-9855-E1E5D375DFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E241E622-5B24-4389-9855-E1E5D375DFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E241E622-5B24-4389-9855-E1E5D375DFB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
