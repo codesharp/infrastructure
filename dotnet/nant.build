@@ -13,7 +13,7 @@
   <property name="nuget.cache" value="C:\Users\${environment::get-user-name()}\AppData\Local\NuGet\Cache" />
   <property name="nuget.install" value="${dir}\nuget.install.bat" />
   <property name="nuget.params.install" value="${nuget} ${path::get-full-path(nuget.packages)}" />
-  <property name="nuget.params.push" value="-s http://dev.incooper.net/feeds hello1234" />
+  <property name="nuget.params.push" value="-s http://nuget.incooper.net/ codesharp" />
   <!--msbuild-->
   <property name="msbuild" value="C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" />
   <property name="msbuild.config" value="Release" dynamic="true"/>
@@ -83,6 +83,14 @@
           commandline="push ${libname}.2.0.nupkg ${nuget.params.push}"
           workingdir="${dir}\packages" />
     </if>
+  </target>
+
+  <target name="nuget_feeds">
+    <exec program="${msbuild}"
+          commandline="${msbuild.params} 
+          ${msbuild.params.weboutput}\nuget_feeds
+          ${msbuild.params.output}\nuget_feeds\bin"
+          workingdir="${dir}\tools\NugetFeeds" />
   </target>
   
   <target name="test">

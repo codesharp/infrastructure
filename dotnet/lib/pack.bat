@@ -5,3 +5,6 @@
 
 ..\..\external-work\tools\nuget push CodeSharp.Package.AspNetMvc3.3.0.nupkg
 ..\..\external-work\tools\nuget push CodeSharp.Package.AspNetWebPage.1.0.nupkg
+
+..\..\external-work\tools\nuget push CodeSharp.Package.AspNetMvc3.3.0.nupkg -s http://nuget.incooper.net/ codesharp
+..\..\external-work\tools\nuget push CodeSharp.Package.AspNetWebPage.1.0.nupkg -s http://nuget.incooper.net/ codesharp

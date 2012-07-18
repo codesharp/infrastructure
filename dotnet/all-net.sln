@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Framework.Castles
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{5A08BFBE-DFC8-4B98-8F77-AAFDE7667500}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NugetFeeds", "tools\NugetFeeds\NugetFeeds.csproj", "{99F949F4-CE43-479A-9DF7-D3DB603C98E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NugetFeeds", "tools\NugetFeeds\NugetFeeds.csproj", "{48152C2A-4EA3-49A0-A5DA-3C1120877580}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,15 +47,15 @@ Global
 		{999C2B16-3630-4A88-95DE-6E53C1965D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{999C2B16-3630-4A88-95DE-6E53C1965D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{999C2B16-3630-4A88-95DE-6E53C1965D61}.Release|Any CPU.Build.0 = Release|Any CPU
-		{99F949F4-CE43-479A-9DF7-D3DB603C98E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99F949F4-CE43-479A-9DF7-D3DB603C98E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99F949F4-CE43-479A-9DF7-D3DB603C98E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99F949F4-CE43-479A-9DF7-D3DB603C98E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48152C2A-4EA3-49A0-A5DA-3C1120877580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48152C2A-4EA3-49A0-A5DA-3C1120877580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48152C2A-4EA3-49A0-A5DA-3C1120877580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48152C2A-4EA3-49A0-A5DA-3C1120877580}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{99F949F4-CE43-479A-9DF7-D3DB603C98E3} = {5A08BFBE-DFC8-4B98-8F77-AAFDE7667500}
+		{48152C2A-4EA3-49A0-A5DA-3C1120877580} = {5A08BFBE-DFC8-4B98-8F77-AAFDE7667500}
 	EndGlobalSection
 EndGlobal
