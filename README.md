@@ -2,6 +2,8 @@
 
 [http://codesharp.github.com/infrastructure/](http://codesharp.github.com/infrastructure/)
 
+![logo](http://www.icodesharp.com/codesharp.png)
+
 ==============
 
 ## dotnet(c#)
