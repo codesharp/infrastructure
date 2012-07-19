@@ -50,7 +50,7 @@ namespace CodeSharp.Core.Utils
         {
             Directory.CreateDirectory(directory);
             using (var file = new FileStream(directory + @"\" + fileName, mode))
-            using (var writer = new StreamWriter(file))
+            using (var writer = new StreamWriter(file, Encoding.UTF8))
                 writer.Write(text ?? "");
         }
     }

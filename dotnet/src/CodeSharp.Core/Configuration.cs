@@ -114,8 +114,7 @@ namespace CodeSharp.Core
         }
 
         #region 配置追加 ReadProperties 耦合于properties.config
-        /// <summary>
-        /// 从指定程序集中读取配置
+        /// <summary>从指定程序集中读取配置
         /// </summary>
         /// <param name="assembly">程序集</param>
         /// <param name="manifestResourceName">嵌入资源的完整名称</param>
@@ -125,8 +124,7 @@ namespace CodeSharp.Core
             using (var reader = new StreamReader(assembly.GetManifestResourceStream(manifestResourceName), Encoding.Default))
                 return ReadProperties(reader.ReadToEnd());
         }
-        /// <summary>
-        /// 从xml文本中读取配置
+        /// <summary>从xml文本中读取配置
         /// </summary>
         /// <param name="propertiesXml">配置xml文本，格式参见properties.config</param>
         /// <returns></returns>
@@ -135,8 +133,7 @@ namespace CodeSharp.Core
             IList<ConfigItem> readed;
             return this.ReadProperties(propertiesXml, out readed);
         }
-        /// <summary>
-        /// 从xml文本中读取配置
+        /// <summary>从xml文本中读取配置
         /// <remarks>若出现重复的配置将会覆盖</remarks>
         /// </summary>
         /// <param name="propertiesXml">配置xml文本，格式参见properties.config</param>
@@ -173,8 +170,7 @@ namespace CodeSharp.Core
             readed = configs;
             return this;
         }
-        /// <summary>
-        /// 将所有配置项写入文件
+        /// <summary>将所有配置项写入文件
         /// </summary>
         /// <returns></returns>
         public Configuration RenderProperties()
