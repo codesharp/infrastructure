@@ -145,12 +145,12 @@ namespace CodeSharp.Framework
             el.Element(XName.Get("properties")).Elements().ToList().ForEach(o =>
             {
                 var key = o.Name.LocalName;
-                var cn = o.Attribute(XName.Get("cn")).Value;
+                //var cn = o.Attribute(XName.Get("cn")).Value;
                 var val = o.Value;
 
                 if (!this._items.ContainsKey(key))
                     this._items.Add(key, null);
-                this._items[key] = new SysConfigItem(key, cn, val);
+                this._items[key] = new SysConfigItem(key, val);
             });
         }
 
@@ -167,13 +167,11 @@ namespace CodeSharp.Framework
     public class SysConfigItem
     {
         public string Key { get; private set; }
-        public string CN { get; private set; }
         public string Value { get; private set; }
 
-        public SysConfigItem(string key, string cn, string value)
+        public SysConfigItem(string key, string value)
         {
             this.Key = key;
-            this.CN = cn;
             this.Value = value;
         }
     }
@@ -211,8 +209,7 @@ namespace CodeSharp.Framework
         {
             this._log = factory.Create(typeof(SysConfigTablesCache));
         }
-        /// <summary>
-        /// 读取配置表并填充至基础配置实例中，若已经存在则忽略
+        /// <summary>读取配置表并填充至基础配置实例中，若已经存在则忽略
         /// </summary>
         /// <param name="tableKey"></param>
         /// <param name="isIndependent">是否读取为独立配置表，独立配置表不会被填充到基础配置实例中</param>
@@ -223,8 +220,7 @@ namespace CodeSharp.Framework
             this._configTables.Add(tableKey, this.Read(tableKey, this._versionFlag, isIndependent));
             this.LastRefreshTime = DateTime.Now;
         }
-        /// <summary>
-        /// 获取配置表
+        /// <summary>获取配置表
         /// </summary>
         /// <param name="tableKey"></param>
         /// <returns></returns>

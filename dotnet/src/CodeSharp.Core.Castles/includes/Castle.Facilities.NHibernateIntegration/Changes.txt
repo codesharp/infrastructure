@@ -90,3 +90,4 @@ Future modifications - after the first release - shall be tracked in this file
 - bugfix "No ISessionFactory implementation associated with the given alias: nh.facility.default"
   SessionFactoryActivator.create override incorrectly, then the sessionFactory were not fill to Burden.
   see https://gist.github.com/3137006
+- add feature "encrypt=true" for connection.connection_string at DefaultConfigurationBuilder.cs

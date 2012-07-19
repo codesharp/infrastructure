@@ -62,7 +62,14 @@ namespace Castle.Facilities.NHibernateIntegration.Builders
 			foreach (IConfiguration item in facilityConfig.Children)
 			{
 				String key = item.Attributes["key"];
-				String value = item.Value;
+				//String value = item.Value;
+
+                //HACK:connection_string encrypt by wsky 2011-2-21
+                var encrypt = Convert.ToBoolean(item.Attributes["encrypt"]);
+                String value = key.Equals("connection.connection_string") && encrypt
+                    //base on CodeSharp.Core.Utils.SecurityHelper
+                    ? System.Text.Encoding.Unicode.GetString(Convert.FromBase64String(item.Value))
+                    : item.Value;
 
 				cfg.SetProperty(key, value);
 			}

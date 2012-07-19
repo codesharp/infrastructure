@@ -13,7 +13,7 @@
   <property name="nuget.cache" value="C:\Users\${environment::get-user-name()}\AppData\Local\NuGet\Cache" />
   <property name="nuget.install" value="${dir}\nuget.install.bat" />
   <property name="nuget.params.install" value="${nuget} ${path::get-full-path(nuget.packages)}" />
-  <property name="nuget.params.push" value="-s http://nuget.incooper.net/ codesharp" />
+  <property name="nuget.params.push" value="-s http://nuget.icodesharp.com/ codesharp" />
   <!--msbuild-->
   <property name="msbuild" value="C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" />
   <property name="msbuild.config" value="Release" dynamic="true"/>

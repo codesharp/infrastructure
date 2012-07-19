@@ -37,7 +37,6 @@ namespace CodeSharp.Framework
     public sealed class Util
     {
         private static EnvironmentVersionFlag? _environmentVersionFlag = null;
-        private static AuthenticationMode? _authenticationMode = null;
         private static bool? _autoRefreshSettingsFlag = null;
         /// <summary>获取当前环境变量
         /// <remarks>Release编译下总是使用Release</remarks>
@@ -54,20 +53,21 @@ namespace CodeSharp.Framework
         /// <returns></returns>
         public static EnvironmentVersionFlag GetEnvironmentVersionFlag(string flag)
         {
-#if DEBUG
-            try
+            //HACK:根据CompileSymbol来处理EnvironmentVersionFlag获取方式，Release编译总是使用Release
+            if (!(SystemConfig.CompileSymbol ?? string.Empty).ToLower().Split('|').Contains("release"))
             {
-                if (!_environmentVersionFlag.HasValue)
-                    _environmentVersionFlag = (EnvironmentVersionFlag)Enum.Parse(typeof(EnvironmentVersionFlag), flag ?? "Debug");
-                return _environmentVersionFlag.Value;
+                try
+                {
+                    if (!_environmentVersionFlag.HasValue)
+                        _environmentVersionFlag = (EnvironmentVersionFlag)Enum.Parse(typeof(EnvironmentVersionFlag), flag ?? "Debug");
+                    return _environmentVersionFlag.Value;
+                }
+                catch
+                {
+                    return EnvironmentVersionFlag.Debug;
+                }
             }
-            catch
-            {
-                return EnvironmentVersionFlag.Debug;
-            }
-#else
-             return EnvironmentVersionFlag.Release;
-#endif
+            return EnvironmentVersionFlag.Release;
         }
         /// <summary>获取Http上下文文本信息
         /// </summary>

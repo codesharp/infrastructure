@@ -16,6 +16,15 @@ namespace CodeSharp.Framework.Castles.Test
     {
         [Test]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
+        public void CompileSymbol()
+        {
+            SystemConfig.CompileSymbol = "release";
+            Assert.AreEqual("Debug", System.Configuration.ConfigurationManager.AppSettings["EnvironmentVersionFlag"]);
+            Assert.AreEqual(EnvironmentVersionFlag.Release, Util.GetEnvironmentVersionFlag());
+            Assert.Throws(typeof(NotSupportedException), () => SystemConfig.CompileSymbol = "debug");
+        }
+        [Test]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
         public void Castle()
         {
             SystemConfig.ConfigFilesAssemblyName = "CodeSharp.Framework.Castles.Test";

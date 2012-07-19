@@ -10,16 +10,11 @@ using CodeSharp.Core.Services;
 
 namespace CodeSharp.Framework.Web
 {
-    /// <summary>HttpApplication
-    /// <remarks>
-    /// 包含：
-    /// 统一module加载
-    /// 耗时统计
-    /// 默认全局异常处理
-    /// </remarks>
+    /// <summary>HttpApplication 包含：统一module，加载耗时统计，默认全局异常处理
     /// </summary>
     public class WebApplication : HttpApplication
-    { 
+    {
+        private static List<IHttpModule> _empty = new List<IHttpModule>();
         protected static readonly string _fileExtensions = ".js|.css|.jpg|.gif|.png|.bmp";
         protected ILog _log { get { return SystemConfig.Settings.GetLoggerFactory().Create(this.GetType()); } }
         //异常体系声明
@@ -72,11 +67,11 @@ namespace CodeSharp.Framework.Web
 
         protected virtual IEnumerable<IHttpModule> DeclareHttpModules()
         {
-            return new List<IHttpModule>();
+            return _empty;
         }
         protected virtual bool IsKnownException(Exception e)
         {
-            return _exceptionSystem.IsKnown(e) || IsKnownHttpException(e);
+            return this._exceptionSystem.IsKnown(e) || this.IsKnownHttpException(e);
         }
         protected virtual void OnError(Exception e)
         {

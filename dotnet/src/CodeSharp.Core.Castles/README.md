@@ -18,5 +18,6 @@ infrastructure for server side
 		- new InterceptorReference(typeof(TransactionInterceptor) -> new InterceptorReference("transaction.interceptor")
 - Castle.Facilities.NHibernateIntegration
 	- bugfix see changes.txt
+	- add feature "encrypt=true" for connection.connection_string at DefaultConfigurationBuilder.cs
 
 

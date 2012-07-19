@@ -6,10 +6,7 @@ using CodeSharp.Core.Services;
 
 namespace CodeSharp.Framework.Castles.Web
 {
-    /// <summary>HttpApplication
-    /// <remarks>
-    /// 继承自CodeSharp.Framework.Web.WebApplication并额外实现了Castle.Windsor.IContainerAccessor接口
-    /// </remarks>
+    /// <summary>HttpApplication 继承自CodeSharp.Framework.Web.WebApplication并额外实现了Castle.Windsor.IContainerAccessor接口
     /// </summary>
     public class WebApplication : CodeSharp.Framework.Web.WebApplication, IContainerAccessor
     {

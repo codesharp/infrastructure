@@ -30,13 +30,33 @@ namespace CodeSharp.Framework
         //文件模板中的变量
         private static readonly string _flag_site = "#{site}";
         private static readonly string _flag_version = "#{version}";
-        
+
         /// <summary>获取或设置默认的配置文件程序集名称
         /// <remarks>
         /// 如：默认为ConfigFiles，此时应用路径识别为ConfigFiles.App
         /// </remarks>
         /// </summary>
         public static string ConfigFilesAssemblyName = "ConfigFiles";
+
+        private static string _compileSymbol;
+        /// <summary>获取或设置编译标识，如：“debug|release”，多个以“|”分隔，此设置将被以“sysConfig_compileSymbol”键注入到配置中，建议业务层面总是使用此方式获得编译标识
+        /// <remarks>
+        /// 默认为debug
+        /// 请在最终宿主应用项目中根据实际编译情况使用预编译指令调整此设置
+        /// </remarks>
+        /// </summary>
+        /// <exception cref="NotSupportedException">不支持重复设置CompileSymbol</exception>
+        public static string CompileSymbol
+        {
+            get { return _compileSymbol; }
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(_compileSymbol))
+                    throw new NotSupportedException("不支持重复设置CompileSymbol");
+                _compileSymbol = value;
+            }
+        }
+
 
         //应用配置静态实例
         private static SystemConfig _settings;
@@ -365,7 +385,7 @@ namespace CodeSharp.Framework
         public NonWeakReferenceCacheManager.ICache NonWeakReferenceCache(string key)
         {
             return this.NonWeakReferenceCache(key
-                //为避免在开发环境多线程刷新需要多重判断是否允许自动刷新
+                //HACK:为避免在开发环境多线程刷新需要多重判断是否允许自动刷新
                 , this._enableRefresh && Util.GetAutoRefreshSettingsFlag());
         }
         /// <summary>获取指定的全局缓存内容，不存在则返回Null
@@ -473,7 +493,7 @@ namespace CodeSharp.Framework
             {
                 if (string.IsNullOrEmpty(o.Key)) return;
                 var el = new XElement(XName.Get(o.Key.Trim()), o.Value);
-                el.SetAttributeValue(XName.Get("cn"), o.CN);
+                //el.SetAttributeValue(XName.Get("cn"), o.CN);
                 xml.Element("properties").Add(el);
             });
             return xml.ToString();
@@ -484,15 +504,11 @@ namespace CodeSharp.Framework
         {
             var configs = new List<SysConfigItem>();
             //环境版本，如：Debug,Test,Exp,Release等
-            configs.Add(new SysConfigItem("sysConfig_versionFlag", "", settings.VersionFlag));
-            //宿主环境的编译标识 Debug|Release
-#if DEBUG
-            configs.Add(new SysConfigItem("sysConfig_compileSymbol", "", "debug"));
-#else
-            configs.Add(new SysConfigItem("sysConfig_compileSymbol", "", "release"));
-#endif
+            configs.Add(new SysConfigItem("sysConfig_versionFlag", settings.VersionFlag));
+            //HACK:被用于注入宿主环境的编译标识，如“Debug|Release”
+            configs.Add(new SysConfigItem("sysConfig_compileSymbol", SystemConfig.CompileSymbol));
             //应用名
-            configs.Add(new SysConfigItem("sysConfig_appName", "", settings.AppName));
+            configs.Add(new SysConfigItem("sysConfig_appName", settings.AppName));
             return this.ParseProperties(configs, DateTime.Now.ToString("yyyyMMdd"));
         }
         //清理/卸载

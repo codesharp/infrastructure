@@ -16,6 +16,7 @@ namespace CodeSharp.Framework.Castles.Test
         //private setter on nh2.x
         //3.x must not lazy or use_proxy_validator=false
         public string Name { get; private set; }
+        //public virtual string Name { get; private set; }
 
         //TODO:完成常用映射验证，避免升级问题
 
