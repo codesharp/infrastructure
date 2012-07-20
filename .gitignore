@@ -1,9 +1,10 @@
 #folders
-external-work
 build
 packages
 
 # dotnet
+%APPDATA%
+application_config
 Debug
 bin
 obj
@@ -11,6 +12,8 @@ obj
 *.user
 *.sln.cache
 *.nupkg
+*.testsettings
+*.vsmdi
 TestResult.xml
 
 #cpp

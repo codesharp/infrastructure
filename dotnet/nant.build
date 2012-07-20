@@ -4,7 +4,7 @@
   <property name="args1" value="" dynamic="true"/>
   <!--path-->
   <property name="dir" value="."/>
-  <property name="dir.tools" value="..\external-work\tools"/>
+  <property name="dir.tools" value="..\..\work-tool"/>
   <property name="build.base" value="build"/>
   <property name="build.absolutepath" value="${path::get-full-path(build.base)}" />
   <!--nuget-->
@@ -18,7 +18,7 @@
   <property name="msbuild" value="C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" />
   <property name="msbuild.config" value="Release" dynamic="true"/>
   <property name="msbuild.params"
-            value="/t:rebuild 
+            value="/t:rebuild
             /p:Configuration=${msbuild.config} 
             /t:ResolveReferences" />
   <property name="msbuild.params.weboutput" value="/t:_CopyWebApplication /p:WebProjectOutputDir=${build.absolutepath}" />
