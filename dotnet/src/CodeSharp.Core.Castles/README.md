@@ -4,7 +4,29 @@ infrastructure for server side
 
 ==============
 
-合并编译：集成型三方库，解决版本、升级至castle3.0后兼容等问题
+### ServiceFramework.Castles
+
+Merged in Core.Castles.
+
+- Update to Castle 3.x, exclude NServiceBus support.
+- Remove NamingSubSystem with castle 2.x
+
+	Copyright 2011-2012 houkun
+ 
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+ 
+		 http://www.apache.org/licenses/LICENSE-2.0
+ 
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+
+
+### 合并编译：集成型三方库，解决版本、升级至castle3.0后兼容等问题
 - Castle.Services.Transaction
 	- Attributes、TransactionMode.cs等，移至Core中，转移Core依赖问题
 - Castle.Facilities.Logging

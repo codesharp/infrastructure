@@ -34,6 +34,9 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,6 +95,39 @@
     <Compile Include="RepositoryFramework\RepositoryFactory.cs" />
     <Compile Include="Services\DependencyResolver.cs" />
     <Compile Include="Services\ILoggerFactory.cs" />
+    <Compile Include="ServiceFramework\Async\ServiceAsync.cs" />
+    <Compile Include="ServiceFramework\Configuration.cs" />
+    <Compile Include="ServiceFramework\ConfigurationWithDefault.cs" />
+    <Compile Include="ServiceFramework\DefaultAsyncHandle.cs" />
+    <Compile Include="ServiceFramework\DefaultAuthentication.cs" />
+    <Compile Include="ServiceFramework\DefaultContainer.cs" />
+    <Compile Include="ServiceFramework\DefaultJSONSerializer.cs" />
+    <Compile Include="ServiceFramework\DefaultLoadBalancingHelper.cs" />
+    <Compile Include="ServiceFramework\DefaultLogger.cs" />
+    <Compile Include="ServiceFramework\DefaultLoggerFactory.cs" />
+    <Compile Include="ServiceFramework\DefaultServiceDescriptionRender.cs" />
+    <Compile Include="ServiceFramework\EndPoint.cs" />
+    <Compile Include="ServiceFramework\Exceptions\ExceptionCode.cs" />
+    <Compile Include="ServiceFramework\Exceptions\ServiceException.cs" />
+    <Compile Include="ServiceFramework\Identity.cs" />
+    <Compile Include="ServiceFramework\Interfaces\IAsyncHandle.cs" />
+    <Compile Include="ServiceFramework\Interfaces\IAuthentication.cs" />
+    <Compile Include="ServiceFramework\Interfaces\IContainer.cs" />
+    <Compile Include="ServiceFramework\Interfaces\IHttpHandle.cs" />
+    <Compile Include="ServiceFramework\Interfaces\ILoadBalancingHelper.cs" />
+    <Compile Include="ServiceFramework\Interfaces\ILog.cs" />
+    <Compile Include="ServiceFramework\Interfaces\ILoggerFactory.cs" />
+    <Compile Include="ServiceFramework\Interfaces\IRpcHandle.cs" />
+    <Compile Include="ServiceFramework\Interfaces\ISerializer.cs" />
+    <Compile Include="ServiceFramework\Interfaces\IServiceDescriptionRender.cs" />
+    <Compile Include="ServiceFramework\Remoting\RemoteFacade.cs" />
+    <Compile Include="ServiceFramework\Remoting\RemotingHandle.cs" />
+    <Compile Include="ServiceFramework\ServiceCall.cs" />
+    <Compile Include="ServiceFramework\ServiceConfig.cs" />
+    <Compile Include="ServiceFramework\ServiceConfigTable.cs" />
+    <Compile Include="ServiceFramework\ServiceInfo.cs" />
+    <Compile Include="ServiceFramework\Tuple.cs" />
+    <Compile Include="ServiceFramework\Utils\ScriptHelper.cs" />
     <Compile Include="Utils\FileHelper.cs" />
     <Compile Include="Utils\SecurityHelper.cs" />
     <Compile Include="Utils\Serializer.cs" />
@@ -99,7 +135,9 @@
   <ItemGroup>
     <None Include="README.md" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ServiceFramework\License.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

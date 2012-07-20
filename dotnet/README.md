@@ -6,7 +6,9 @@
 
 * Core
 	- CodeSharp.Core
+		- merge ServiceFramework
 	- CodeSharp.Core.Castles
+		- merge ServiceFramework.Castles
 	- CodeSharp.Core.Web
 	- CodeSharp.Core
 
@@ -16,9 +18,12 @@
 
 ## NET40
 
-### Build
-
-	- build all
-	- build test
+* Build
+	- build nuget
+	- build all [pack]
+	- build test_core
+	- build test_framework
 
 ## MONO
+
+* Build

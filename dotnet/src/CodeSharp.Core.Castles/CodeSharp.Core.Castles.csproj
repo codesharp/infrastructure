@@ -265,6 +265,12 @@
     <Compile Include="NHibernateRepositoryBase.cs" />
     <Compile Include="NHibernateRepositoryUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceFramework.Castles\CastleExtensions.cs" />
+    <Compile Include="ServiceFramework.Castles\ConfigurationWithCastle.cs" />
+    <Compile Include="ServiceFramework.Castles\Log4NetLogger.cs" />
+    <Compile Include="ServiceFramework.Castles\Log4NetLoggerFactory.cs" />
+    <Compile Include="ServiceFramework.Castles\RemoteServiceInterceptor.cs" />
+    <Compile Include="ServiceFramework.Castles\WindsorContainer.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="Web\Extensions.cs" />
     <Compile Include="Web\WindsorControllerFactory.cs" />
@@ -285,6 +291,7 @@
   <ItemGroup>
     <Content Include="includes\Castle.Facilities.NHibernateIntegration\Changes.txt" />
     <Content Include="includes\Castle.Facilities.NHibernateIntegration\License.txt" />
+    <Content Include="ServiceFramework.Castles\License.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
