@@ -34,6 +34,7 @@
   <target name="nuget" description="nuget install and update">
     <delete dir="${nuget.packages}"></delete>
     <delete dir="${nuget.cache}"></delete>
+    <echo>${nuget.params.install}</echo>
     <exec program="${nuget.install}"
           commandline="${nuget.params.install}"
           workingdir="${dir}" />
