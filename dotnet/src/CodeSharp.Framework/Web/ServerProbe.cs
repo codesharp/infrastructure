@@ -1,4 +1,4 @@
-﻿//Copyright (c) CodeSharp.  All rights reserved. - http://www.codesharp.cn/
+﻿//Copyright (c) CodeSharp.  All rights reserved. - http://www.icodesharp.com/
 
 using System;
 using System.Collections.Generic;
@@ -16,6 +16,7 @@ namespace CodeSharp.Framework.Web
     {
         internal static readonly string _requestTimeFlag = "____RequestTime";
         internal static readonly string _machineNameFlag = "____MachineName";
+        internal static readonly int _maxCostLimit = 1500;
 
         /// <summary>准备参数，需要在请求起始位置执行
         /// </summary>
@@ -58,7 +59,7 @@ namespace CodeSharp.Framework.Web
 
             var time = (System.DateTime.Now - (DateTime)context.Items[_requestTimeFlag]).TotalMilliseconds;
 
-            if (time > 1000)
+            if (time > _maxCostLimit)
                 SystemConfig.Settings.GetLoggerFactory().Create("RequestPerformance").WarnFormat(
                     "以下请求耗时过长，请近期内查明并修正：url={0}|time={1}|user={2}|method={3}"
                     , url
@@ -74,6 +75,70 @@ namespace CodeSharp.Framework.Web
                 response.AppendHeader(_machineNameFlag, context.Server.MachineName);
             }
             catch { }
+        }
+        /// <summary>返回服务器、进程等信息
+        /// </summary>
+        /// <returns></returns>
+        public static string RenderServerInfo()
+        {
+            return string.Format(@"
+# Server Information
+
+## TimeZone
+
+- Now = {0}
+- UtcNow = {1}
+- CurrentTimeZone = {2}
+
+## CultureInfo
+
+- Name = {3}
+- DateTimeFormat.ShortDatePattern = {4}
+- DateTimeFormat.LongDatePattern = {5}
+- NumberFormat = {6}
+
+## Environment
+
+- CommandLine = {7}
+- CurrentDirectory = {8}
+- Is64BitOperatingSystem = {9}
+- Is64BitProcess = {10}
+- OSVersion = {11}
+- ProcessorCount = {12}
+- SystemDirectory = {13}
+- SystemPageSize = {14}
+- Version = {15}
+
+## AppDomain
+
+- BaseDirectory = {16}
+- RelativeSearchPath = {17}
+- ShadowCopyFiles = {18}
+
+"
+                , System.DateTime.Now
+                , System.DateTime.UtcNow
+                , System.TimeZone.CurrentTimeZone.StandardName
+
+                , System.Globalization.CultureInfo.CurrentCulture.Name
+                , System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern
+                , System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.LongDatePattern
+                , System.Globalization.CultureInfo.CurrentCulture.NumberFormat
+
+                , System.Environment.CommandLine
+                , System.Environment.CurrentDirectory
+                , System.Environment.Is64BitOperatingSystem
+                , System.Environment.Is64BitProcess
+                , System.Environment.MachineName
+                , System.Environment.OSVersion
+                , System.Environment.ProcessorCount
+                , System.Environment.SystemDirectory
+                , System.Environment.SystemPageSize
+                , System.Environment.Version
+
+                , System.AppDomain.CurrentDomain.BaseDirectory
+                , System.AppDomain.CurrentDomain.RelativeSearchPath
+                , System.AppDomain.CurrentDomain.ShadowCopyFiles);
         }
     }
 }

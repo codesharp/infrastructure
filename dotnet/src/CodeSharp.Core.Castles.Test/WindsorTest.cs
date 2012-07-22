@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Copyright (c) CodeSharp.  All rights reserved. - http://www.icodesharp.com/
+
+using System;
 using System.Linq;
 using System.Text;
 using System.Collections.Generic;

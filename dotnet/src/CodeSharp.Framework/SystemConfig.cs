@@ -1,4 +1,4 @@
-﻿//Copyright (c) CodeSharp.  All rights reserved. - http://www.codesharp.cn/
+﻿//Copyright (c) CodeSharp.  All rights reserved. - http://www.icodesharp.com/
 
 using System;
 using System.Collections.Generic;
@@ -460,8 +460,10 @@ namespace CodeSharp.Framework
         /// <summary>设置默认zh-CN的时区/culture
         /// </summary>
         /// <returns></returns>
+        [Obsolete("没有实际效果，建议直接调整OS设置或者使用UTC时间等方式完成")]
         public SystemConfig Globalization()
         {
+            //UNDONE:仅能临时切换当前线程的CultureInfo
             System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("zh-CN");
             culture.DateTimeFormat.DateSeparator = "-";
             culture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";

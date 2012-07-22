@@ -1,4 +1,4 @@
-﻿//Copyright (c) CodeSharp.  All rights reserved. - http://www.codesharp.cn/
+﻿//Copyright (c) CodeSharp.  All rights reserved. - http://www.icodesharp.com/
 
 using System;
 using System.Web;
