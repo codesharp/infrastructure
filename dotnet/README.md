@@ -2,6 +2,10 @@
 
 Copyright (c) CodeSharp.  All rights reserved. - http://www.icodesharp.com/
 
+[http://codesharp.github.com/infrastructure/](http://codesharp.github.com/infrastructure/)
+
+![logo](http://www.icodesharp.com/codesharp.png)
+
 =====
 
 ## Library
