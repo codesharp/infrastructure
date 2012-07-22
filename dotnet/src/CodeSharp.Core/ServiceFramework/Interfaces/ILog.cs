@@ -10,6 +10,27 @@ namespace CodeSharp.ServiceFramework.Interfaces
     /// </summary>
     public interface ILog
     {
+        /// <summary>
+        /// 是否启用Debug级别
+        /// </summary>
+        bool IsDebugEnabled { get; }
+        /// <summary>
+        /// 是否启用Error级别
+        /// </summary>
+        bool IsErrorEnabled { get; }
+        /// <summary>
+        /// 是否启用Fatal级别
+        /// </summary>
+        bool IsFatalEnabled { get; }
+        /// <summary>
+        /// 是否启用Info级别
+        /// </summary>
+        bool IsInfoEnabled { get; }
+        /// <summary>
+        /// 是否启用Warn级别
+        /// </summary>
+        bool IsWarnEnabled { get; }
+
         #region Info
         /// <summary>
         /// 记录信息

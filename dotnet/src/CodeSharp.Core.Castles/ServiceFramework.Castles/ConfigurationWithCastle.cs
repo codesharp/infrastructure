@@ -14,10 +14,11 @@ namespace CodeSharp.ServiceFramework.Castles
     /// </summary>
     public sealed class ConfigurationWithCastle : Configuration
     {
+        public WindsorContainer WindsorContainer { get { return this.Container as WindsorContainer; } }
         /// <summary>
         /// 获取Windsor容器
         /// </summary>
-        public IWindsorContainer WindsorContainer { get { return (this.Container as WindsorContainer)._container; } }
+        public IWindsorContainer IWindsorContainer { get { return (this.Container as WindsorContainer)._container; } }
         /// <summary>
         /// 初始化
         /// </summary>
@@ -69,7 +70,7 @@ namespace CodeSharp.ServiceFramework.Castles
         /// <returns></returns>
         public ConfigurationWithCastle LoggerFactory(ILoggerFactory factory)
         {
-            this.WindsorContainer.Register(Component.For<ILoggerFactory>().Instance(factory));
+            this.IWindsorContainer.Register(Component.For<ILoggerFactory>().Instance(factory));
             return this;
         }
         /// <summary>
@@ -79,7 +80,7 @@ namespace CodeSharp.ServiceFramework.Castles
         /// <returns></returns>
         public ConfigurationWithCastle Authentication(IAuthentication auth)
         {
-            this.WindsorContainer.Register(Component.For<IAuthentication>().Instance(auth));
+            this.IWindsorContainer.Register(Component.For<IAuthentication>().Instance(auth));
             return this;
         }
         /// <summary>
@@ -89,7 +90,7 @@ namespace CodeSharp.ServiceFramework.Castles
         /// <returns></returns>
         public ConfigurationWithCastle LoadBalancing(ILoadBalancingHelper helper)
         {
-            this.WindsorContainer.Register(Component.For<ILoadBalancingHelper>().Instance(helper));
+            this.IWindsorContainer.Register(Component.For<ILoadBalancingHelper>().Instance(helper));
             return this;
         }
         /// <summary>
@@ -111,7 +112,7 @@ namespace CodeSharp.ServiceFramework.Castles
         {
             this.SelfHosting = selfHosting;
             this.SetUri(uri);
-            this.WindsorContainer
+            this.IWindsorContainer
                 .Register(Component.For<IRemoteHandle>()
                 .ImplementedBy<RemotingHandle>());
             return this;
@@ -127,7 +128,7 @@ namespace CodeSharp.ServiceFramework.Castles
         {
             this.SelfHosting = selfHosting;
             this.SetUri(uri);
-            this.WindsorContainer
+            this.IWindsorContainer
                 .Register(Component.For<IRemoteHandle>()
                 .ImplementedBy<T>());
             return this;
@@ -142,7 +143,7 @@ namespace CodeSharp.ServiceFramework.Castles
             if (configure)
                 log4net.Config.XmlConfigurator.Configure();
 
-            this.WindsorContainer.Register(Component
+            this.IWindsorContainer.Register(Component
                 .For<ILoggerFactory>()
                 .ImplementedBy<Log4NetLoggerFactory>()
                 .LifeStyle.Singleton);

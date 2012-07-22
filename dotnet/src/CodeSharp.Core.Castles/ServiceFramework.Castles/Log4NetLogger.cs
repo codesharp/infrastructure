@@ -23,6 +23,31 @@ namespace CodeSharp.ServiceFramework.Castles
 
         #region ILoger Members
 
+        public bool IsDebugEnabled
+        {
+            get { return this._log.IsDebugEnabled; }
+        }
+
+        public bool IsErrorEnabled
+        {
+            get { return this._log.IsErrorEnabled; }
+        }
+
+        public bool IsFatalEnabled
+        {
+            get { return this._log.IsFatalEnabled; }
+        }
+
+        public bool IsInfoEnabled
+        {
+            get { return this._log.IsInfoEnabled; }
+        }
+
+        public bool IsWarnEnabled
+        {
+            get { return this._log.IsWarnEnabled; }
+        }
+
         public void Info(object message)
         {
             this._log.Info(message);
