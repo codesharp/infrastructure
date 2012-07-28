@@ -4,6 +4,16 @@
 
 ![logo](http://www.icodesharp.com/codesharp.png)
 
+![ci](http://www.jetbrains.com/img/banners/Codebetter.png)
+
+see build state [here](http://teamcity.codebetter.com/project.html?projectId=project241&tab=projectOverview)
+
+we are using teamcity.codebetter.com for CI.
+
+[http://www.jetbrains.com/teamcity](http://www.jetbrains.com/teamcity)
+
+[http://www.jetbrains.com/youtrack](http://www.jetbrains.com/youtrack)
+
 ==============
 
 ## dotnet(c#)
