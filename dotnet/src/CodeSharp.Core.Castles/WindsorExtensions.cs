@@ -18,7 +18,7 @@ using CodeSharp.Core.Services;
 
 namespace CodeSharp.Core.Castles
 {
-    /// <summary>Windsor注册扩展
+    /// <summary>Windsor注册扩展，旨在基于基本框架约定下提供辅助注册方法
     /// </summary>
     public static class WindsorExtensions
     {
@@ -329,6 +329,50 @@ namespace CodeSharp.Core.Castles
             return container;
         }
         #endregion
+
+
+        /// <summary>注册任意组件
+        /// </summary>
+        /// <typeparam name="serviceType"></typeparam>
+        /// <typeparam name="classType"></typeparam>
+        /// <param name="container"></param>
+        /// <param name="interceptors"></param>
+        /// <returns></returns>
+        public static IWindsorContainer RegisterAnything<serviceType, classType>(this IWindsorContainer container, params Type[] interceptors)
+        {
+            return container.RegisterAnything(typeof(serviceType), typeof(classType), interceptors);
+        }
+        /// <summary>注册任意组件
+        /// </summary>
+        /// <param name="container"></param>
+        /// <param name="serviceType"></param>
+        /// <param name="classType"></param>
+        /// <param name="interceptors"></param>
+        /// <returns></returns>
+        public static IWindsorContainer RegisterAnything(this IWindsorContainer container
+            , Type serviceType
+            , Type classType
+            , params Type[] interceptors)
+        {
+            if (!IsIgnore())
+                GenerateParameters(classType);
+            //生命周期
+            var life = ParseLifeStyle(classType);
+            //实现注册
+            var typeKey = serviceType.FullName;
+            if (!container.Kernel.HasComponent(typeKey))
+            {
+                container.Register(ParseRegistration(Component
+                    .For(serviceType)
+                    .ImplementedBy(classType)
+                    .Named(typeKey)
+                    .DynamicParameters((k, d) => GenerateDynamicParameters(classType, d))
+                    .Interceptors(interceptors), life));
+                if (_log.IsDebugEnabled)
+                    _log.DebugFormat("将{0}注册为键{1}，{2}", classType.FullName, typeKey, life);
+            }
+            return container;
+        }
 
         #region 新增注册扩展 由于上述早期提供的注册方法均需要满足typePredicate条件，故增加下列方法以弥补
         /// <summary>

@@ -86,7 +86,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ConfigFiles\facilities.config" />
     <EmbeddedResource Include="ConfigFiles\log4net.config" />
-    <EmbeddedResource Include="ConfigFiles\properties.config" />
+    <EmbeddedResource Include="ConfigFiles\properties.config">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
