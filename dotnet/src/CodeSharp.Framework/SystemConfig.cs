@@ -244,7 +244,7 @@ namespace CodeSharp.Framework
         private static IDictionary<string, string> GenerateFileParameters(SystemConfig config)
         {
             return new Dictionary<string, string>() { 
-                { _flag_site, Util.GetSiteName(config.AppName) }, 
+                { _flag_site, config.AppName }, 
                 { _flag_version, config.VersionFlag } };
         }
         #endregion
