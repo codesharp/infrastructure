@@ -14,6 +14,7 @@
     <language>zh-CN</language>
     <dependencies>
       <dependency id="CodeSharp.Core" version="2.0" />
+	  <dependency id="CodeSharp.Core.Castles" version="2.0" />
       <dependency id="CodeSharp.Framework" version="2.0" />
       <dependency id="Castle.Core" version="3.0.0.4001" />
       <dependency id="Castle.Windsor" version="3.0.0.4001" />
