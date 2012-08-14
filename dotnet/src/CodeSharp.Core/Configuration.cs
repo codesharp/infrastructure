@@ -143,30 +143,33 @@ namespace CodeSharp.Core
         {
             var body = propertiesXml;
             var configs = new List<ConfigItem>();
+            var el = XElement.Parse(body).Element("properties");
 
-            #region 填充配置集合
-            XElement.Parse(body)
-                .Element("properties")
-                .Descendants()
-                .ToList()
-                .ForEach(p =>
-                {
-                    var item = new ConfigItem()
+            if (el == null)
+                this._log.WarnFormat("指定的properties文件不符合格式要求：{0}", propertiesXml);
+            else
+            {
+                #region 填充配置集合
+                el.Descendants()
+                    .ToList()
+                    .ForEach(p =>
                     {
-                        Key = p.Name.LocalName,
-                        Value = p.Value
-                    };
-                    configs.Add(item);
-                    if (this._properties.ContainsKey(item.Key))
-                        this._properties[item.Key] = item;
-                    else
-                        this._properties.Add(p.Name.LocalName, item);
+                        var item = new ConfigItem()
+                        {
+                            Key = p.Name.LocalName,
+                            Value = p.Value
+                        };
+                        configs.Add(item);
+                        if (this._properties.ContainsKey(item.Key))
+                            this._properties[item.Key] = item;
+                        else
+                            this._properties.Add(p.Name.LocalName, item);
 
-                    if (this._log.IsDebugEnabled)
-                        this._log.DebugFormat("读取并替换了键{0}={1}", item.Key, item.Value);
-                });
-            #endregion
-
+                        if (this._log.IsDebugEnabled)
+                            this._log.DebugFormat("读取并替换了键{0}={1}", item.Key, item.Value);
+                    });
+                #endregion
+            }
             readed = configs;
             return this;
         }
@@ -407,7 +410,7 @@ namespace CodeSharp.Core
                     return;
 
                 //properties文件
-                if (o.ToLower().IndexOf("properties") >= 0)
+                if (o.ToLower().IndexOf("properties.config") >= 0)
                 {
                     Configuration._instance.ReadProperties(assembly, o);
                     return;
