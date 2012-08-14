@@ -8,10 +8,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{E97700A4-A283-46B7-8B25-73E79FEC7FA7}"
 	ProjectSection(SolutionItems) = preProject
 		build.bat = build.bat
-		CodeSharp.Core.2.0.nuspec = CodeSharp.Core.2.0.nuspec
-		CodeSharp.Core.Castles.2.0.nuspec = CodeSharp.Core.Castles.2.0.nuspec
-		CodeSharp.Framework.2.0.nuspec = CodeSharp.Framework.2.0.nuspec
-		CodeSharp.Framework.Castles.2.0.nuspec = CodeSharp.Framework.Castles.2.0.nuspec
+		CodeSharp.Core.Castles.nuspec = CodeSharp.Core.Castles.nuspec
+		CodeSharp.Core.nuspec = CodeSharp.Core.nuspec
+		CodeSharp.Framework.Castles.nuspec = CodeSharp.Framework.Castles.nuspec
+		CodeSharp.Framework.nuspec = CodeSharp.Framework.nuspec
 		nant.build = nant.build
 		nuget.install.bat = nuget.install.bat
 		README.md = README.md

@@ -42,6 +42,7 @@ Merged in Core.
 	1.Quartz\quartz.config
 	2.Quartz\Impl\StdSchedulerFactory
 	3.Quartz\Impl\AdoJobStore\Common\DbProvider
+
 -ZookeeperNet[取消，该为ilmerge]
 	git fork: https://github.com/wsky/zookeeper/tree/trunk/src/dotnet/ZooKeeperNet
 	直接git维护
