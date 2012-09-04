@@ -95,13 +95,13 @@
 
   <target name="test_core">
     <exec program="${msbuild}"
-          commandline="${msbuild.params} ${msbuild.params.output}\core_test"
+          commandline="CodeSharp.Core.Castles.Test.csproj ${msbuild.params} ${msbuild.params.output}\core_test"
           workingdir="${dir}\src\CodeSharp.Core.Castles.Test" />
     <exec program="${nunit}" commandline="CodeSharp.Core.Castles.Test.dll" workingdir="${build.absolutepath}\core_test"/>
   </target>
   <target name="test_framework">
     <exec program="${msbuild}"
-          commandline="${msbuild.params} ${msbuild.params.output}\framework_test"
+          commandline="CodeSharp.Framework.Castles.Test.csproj ${msbuild.params} ${msbuild.params.output}\framework_test"
           workingdir="${dir}\src\CodeSharp.Framework.Castles.Test" />
     <exec program="${nunit}" commandline="CodeSharp.Framework.Castles.Test.dll" workingdir="${build.absolutepath}\framework_test"/>
   </target>
