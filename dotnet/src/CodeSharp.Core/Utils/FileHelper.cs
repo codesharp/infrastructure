@@ -25,7 +25,7 @@ namespace CodeSharp.Core.Utils
 
             Directory.CreateDirectory(directory);
 
-            using (var file = new FileStream(directory + @"\" + fileName, mode))
+            using (var file = new FileStream(Path.Combine(directory, fileName), mode))
             {
                 var read = 0;
                 var count = 1024;
@@ -49,7 +49,7 @@ namespace CodeSharp.Core.Utils
         public static void WriteTo(string text, string directory, string fileName, FileMode mode)
         {
             Directory.CreateDirectory(directory);
-            using (var file = new FileStream(directory + @"\" + fileName, mode))
+            using (var file = new FileStream(Path.Combine(directory, fileName), mode))
             using (var writer = new StreamWriter(file, Encoding.UTF8))
                 writer.Write(text ?? "");
         }

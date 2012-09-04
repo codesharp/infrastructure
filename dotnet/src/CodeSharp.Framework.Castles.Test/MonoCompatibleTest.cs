@@ -23,7 +23,7 @@ namespace CodeSharp.Framework.Castles.Test
         {
             Assembly sysData = Assembly.Load("System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089");
             var sqlCmdSetType = sysData.GetType("System.Data.SqlClient.SqlCommandSet");
-            Assert.IsTrue(sqlCmdSetType != null, "Could not find SqlCommandSet!");
+            Assert.IsFalse(sqlCmdSetType != null, "Could not find SqlCommandSet!");
         }
     }
 }

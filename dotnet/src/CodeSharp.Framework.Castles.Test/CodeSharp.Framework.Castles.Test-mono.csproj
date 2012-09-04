@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;MONO;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -61,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stub\TestEntity.cs" />
     <Compile Include="SystemConfigTest.cs" />
+    <Compile Include="MonoCompatibleTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodeSharp.Core.Castles\CodeSharp.Core.Castles.csproj">
