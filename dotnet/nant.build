@@ -75,7 +75,7 @@
     </copy>
     <if test="${args0=='pack'}">
       <exec program="${nuget}\nuget"
-          commandline="pack ${libname}.2.0.nuspec -outputdirectory packages"
+          commandline="pack ${libname}.nuspec -outputdirectory packages"
           workingdir="${dir}" />
     </if>
     <if test="${args1=='push'}">
