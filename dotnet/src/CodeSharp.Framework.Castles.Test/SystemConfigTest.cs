@@ -27,6 +27,14 @@ namespace CodeSharp.Framework.Castles.Test
         }
         [Test]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
+        public void Test()
+        {
+            Assembly sysData = Assembly.Load("System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089");
+            var sqlCmdSetType = sysData.GetType("System.Data.SqlClient.SqlCommandSet");
+            Assert.IsTrue(sqlCmdSetType != null, "Could not find SqlCommandSet!");
+        }
+        [Test]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
         public void Castle()
         {
             SystemConfig.ConfigFilesAssemblyName = "CodeSharp.Framework.Castles.Test";

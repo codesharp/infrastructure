@@ -5,6 +5,7 @@ packages
 # dotnet
 %APPDATA%
 application_config
+testresults
 Debug
 bin
 obj
@@ -15,6 +16,10 @@ obj
 *.testsettings
 *.vsmdi
 TestResult.xml
+
+# mono
+*.userprefs
+test-results
 
 #cpp
 ipch

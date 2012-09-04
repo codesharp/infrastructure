@@ -1,7 +1,66 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Core", "src\CodeSharp.Core\CodeSharp.Core.csproj", "{09088AAE-32AB-4EA8-B918-D5568C047A89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Core.Castles", "src\CodeSharp.Core.Castles\CodeSharp.Core.Castles.csproj", "{BF4A398D-0392-4557-840E-C0E6302E6204}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{E97700A4-A283-46B7-8B25-73E79FEC7FA7}"
+	ProjectSection(SolutionItems) = preProject
+		build.bat = build.bat
+		CodeSharp.Core.Castles.nuspec = CodeSharp.Core.Castles.nuspec
+		CodeSharp.Core.nuspec = CodeSharp.Core.nuspec
+		CodeSharp.Framework.Castles.nuspec = CodeSharp.Framework.Castles.nuspec
+		CodeSharp.Framework.nuspec = CodeSharp.Framework.nuspec
+		nant.build = nant.build
+		nuget.install.bat = nuget.install.bat
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Framework", "src\CodeSharp.Framework\CodeSharp.Framework.csproj", "{E7E27179-3706-46E5-9B13-2370D275E265}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Framework.Castles", "src\CodeSharp.Framework.Castles\CodeSharp.Framework.Castles.csproj", "{999C2B16-3630-4A88-95DE-6E53C1965D61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Core.Castles.Test-mono", "src\CodeSharp.Core.Castles.Test\CodeSharp.Core.Castles.Test-mono.csproj", "{447979FD-E700-4A1B-BB5D-9F09E561EEB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Framework.Castles.Test-mono", "src\CodeSharp.Framework.Castles.Test\CodeSharp.Framework.Castles.Test-mono.csproj", "{E241E622-5B24-4389-9855-E1E5D375DFB6}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09088AAE-32AB-4EA8-B918-D5568C047A89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09088AAE-32AB-4EA8-B918-D5568C047A89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09088AAE-32AB-4EA8-B918-D5568C047A89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09088AAE-32AB-4EA8-B918-D5568C047A89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{447979FD-E700-4A1B-BB5D-9F09E561EEB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{447979FD-E700-4A1B-BB5D-9F09E561EEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{447979FD-E700-4A1B-BB5D-9F09E561EEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{447979FD-E700-4A1B-BB5D-9F09E561EEB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{999C2B16-3630-4A88-95DE-6E53C1965D61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{999C2B16-3630-4A88-95DE-6E53C1965D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{999C2B16-3630-4A88-95DE-6E53C1965D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{999C2B16-3630-4A88-95DE-6E53C1965D61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF4A398D-0392-4557-840E-C0E6302E6204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF4A398D-0392-4557-840E-C0E6302E6204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF4A398D-0392-4557-840E-C0E6302E6204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF4A398D-0392-4557-840E-C0E6302E6204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E241E622-5B24-4389-9855-E1E5D375DFB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E241E622-5B24-4389-9855-E1E5D375DFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E241E622-5B24-4389-9855-E1E5D375DFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E241E622-5B24-4389-9855-E1E5D375DFB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7E27179-3706-46E5-9B13-2370D275E265}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7E27179-3706-46E5-9B13-2370D275E265}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7E27179-3706-46E5-9B13-2370D275E265}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7E27179-3706-46E5-9B13-2370D275E265}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = src\CodeSharp.Core\CodeSharp.Core.csproj
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

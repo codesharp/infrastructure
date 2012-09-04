@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Core", "src\CodeSharp.Core\CodeSharp.Core.csproj", "{09088AAE-32AB-4EA8-B918-D5568C047A89}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Core.Castles", "src\CodeSharp.Core.Castles\CodeSharp.Core.Castles.csproj", "{BF4A398D-0392-4557-840E-C0E6302E6204}"
@@ -20,8 +20,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Framework", "src\CodeSharp.Framework\CodeSharp.Framework.csproj", "{E7E27179-3706-46E5-9B13-2370D275E265}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Framework.Castles", "src\CodeSharp.Framework.Castles\CodeSharp.Framework.Castles.csproj", "{999C2B16-3630-4A88-95DE-6E53C1965D61}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{5A08BFBE-DFC8-4B98-8F77-AAFDE7667500}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Framework.Castles.Test", "src\CodeSharp.Framework.Castles.Test\CodeSharp.Framework.Castles.Test.csproj", "{E241E622-5B24-4389-9855-E1E5D375DFB6}"
 EndProject
