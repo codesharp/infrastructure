@@ -63,9 +63,9 @@
   <target name="lib_net40">
     <mkdir dir="${build.absolutepath}" />
     <exec program="${msbuild}"
-          commandline="${msbuild.params} ${msbuild.params.output} /p:DocumentationFile=${build.absolutepath}\${libname}.Xml"
+          commandline="${msbuild.params} ${msbuild.params.output} /p:DocumentationFile=${build.absolutepath}/${libname}.Xml"
           workingdir="${dir}\src\${libname}" />
-    <copy todir="${build.absolutepath}\lib\net40">
+    <copy todir="${build.absolutepath}/lib/net40">
       <fileset basedir="${build.absolutepath}">
         <include name="${libname}.dll" />
         <include name="${libname}.pdb" />
@@ -95,7 +95,7 @@
     </if>
     <if test="${runtime=='mono'}">
       <exec program="${msbuild}"
-            commandline="${msbuild.params} ${msbuild.params.output}\core_test_mono CodeSharp.Core.Castles.Test-mono.csproj"
+            commandline="${msbuild.params} ${msbuild.params.output}/core_test_mono CodeSharp.Core.Castles.Test-mono.csproj"
             workingdir="${dir}\src\CodeSharp.Core.Castles.Test" />
       <exec program="mono" commandline="${nunit} CodeSharp.Core.Castles.Test.dll" workingdir="${build.absolutepath}\core_test_mono"/>
     </if>
@@ -109,7 +109,7 @@
     </if>
     <if test="${runtime=='mono'}">
       <exec program="${msbuild}"
-            commandline="CodeSharp.Framework.Castles.Test-mono.csproj ${msbuild.params} ${msbuild.params.output}\framework_test_mono"
+            commandline="CodeSharp.Framework.Castles.Test-mono.csproj ${msbuild.params} ${msbuild.params.output}/framework_test_mono"
             workingdir="${dir}\src\CodeSharp.Framework.Castles.Test" />
       <exec program="mono" commandline="${nunit} CodeSharp.Framework.Castles.Test.dll" workingdir="${build.absolutepath}\framework_test_mono"/>
     </if>
