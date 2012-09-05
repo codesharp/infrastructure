@@ -14,8 +14,8 @@
     <language>zh-CN</language>
   </metadata>
   <files>
-    <file src="build\lib\net40\CodeSharp.Core.dll" target="lib\net40\CodeSharp.Core.dll" />
-    <file src="build\lib\net40\CodeSharp.Core.xml" target="lib\net40\CodeSharp.Core.xml" />
-    <file src="build\lib\net40\CodeSharp.Core.pdb" target="lib\net40\CodeSharp.Core.pdb" />
+    <file src="..\build\lib\net40\CodeSharp.Core.dll" target="lib\net40\CodeSharp.Core.dll" />
+    <file src="..\build\lib\net40\CodeSharp.Core.xml" target="lib\net40\CodeSharp.Core.xml" />
+    <file src="..\build\lib\net40\CodeSharp.Core.pdb" target="lib\net40\CodeSharp.Core.pdb" />
   </files>
 </package>

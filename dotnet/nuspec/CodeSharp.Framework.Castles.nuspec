@@ -21,8 +21,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="build\lib\net40\CodeSharp.Framework.Castles.dll" target="lib\net40\CodeSharp.Framework.Castles.dll" />
-    <file src="build\lib\net40\CodeSharp.Framework.Castles.xml" target="lib\net40\CodeSharp.Framework.Castles.xml" />
-    <file src="build\lib\net40\CodeSharp.Framework.Castles.pdb" target="lib\net40\CodeSharp.Framework.Castles.pdb" />
+    <file src="..\build\lib\net40\CodeSharp.Framework.Castles.dll" target="lib\net40\CodeSharp.Framework.Castles.dll" />
+    <file src="..\build\lib\net40\CodeSharp.Framework.Castles.xml" target="lib\net40\CodeSharp.Framework.Castles.xml" />
+    <file src="..\build\lib\net40\CodeSharp.Framework.Castles.pdb" target="lib\net40\CodeSharp.Framework.Castles.pdb" />
   </files>
 </package>

@@ -50,6 +50,39 @@ namespace CodeSharp.Core.Castles.Test
             Assert.IsInstanceOf<TestSubClass>(_windsor.Resolve<TestClass>());
         }
 
+        //[Test]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
+        public void SerializeBytes()
+        {
+            var json = new CodeSharp.ServiceFramework.DefaultJSONSerializer();
+
+            var w = new Stopwatch();
+
+            w.Start();
+            var buffer = System.IO.File.ReadAllBytes(@"C:\down\LogParserLizardSetup.msi");
+            w.Stop();
+            Console.WriteLine("ReadAllBytes length={0} {1}ms", buffer.LongLength, w.ElapsedMilliseconds);
+
+            var str = json.Serialize(buffer);
+            w.Stop();
+            Console.WriteLine("Serialize byte[] length={0} {1}ms", str.Length, w.ElapsedMilliseconds);
+
+            w.Restart();
+            json.Deserialize<byte[]>(str);
+            w.Stop();
+            Console.WriteLine("Deserialize byte[] {0}ms", w.ElapsedMilliseconds);
+
+            w.Restart();
+            str = json.Serialize(str);
+            w.Stop();
+            Console.WriteLine("Serialize string {0}ms", w.ElapsedMilliseconds);
+
+            w.Restart();
+            json.Deserialize<string>(str);
+            w.Stop();
+            Console.WriteLine("Deserialize string {0}ms", w.ElapsedMilliseconds);
+        }
+
         public class TestClass { }
         public class TestSubClass : TestClass
         {

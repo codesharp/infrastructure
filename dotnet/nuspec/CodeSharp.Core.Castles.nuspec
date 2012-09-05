@@ -23,8 +23,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="build\lib\net40\CodeSharp.Core.Castles.dll" target="lib\net40\CodeSharp.Core.Castles.dll" />
-    <file src="build\lib\net40\CodeSharp.Core.Castles.xml" target="lib\net40\CodeSharp.Core.Castles.xml" />
-    <file src="build\lib\net40\CodeSharp.Core.Castles.pdb" target="lib\net40\CodeSharp.Core.Castles.pdb" />
+    <file src="..\build\lib\net40\CodeSharp.Core.Castles.dll" target="lib\net40\CodeSharp.Core.Castles.dll" />
+    <file src="..\build\lib\net40\CodeSharp.Core.Castles.xml" target="lib\net40\CodeSharp.Core.Castles.xml" />
+    <file src="..\build\lib\net40\CodeSharp.Core.Castles.pdb" target="lib\net40\CodeSharp.Core.Castles.pdb" />
   </files>
 </package>

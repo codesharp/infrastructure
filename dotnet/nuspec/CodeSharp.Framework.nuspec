@@ -17,8 +17,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="build\lib\net40\CodeSharp.Framework.dll" target="lib\net40\CodeSharp.Framework.dll" />
-    <file src="build\lib\net40\CodeSharp.Framework.xml" target="lib\net40\CodeSharp.Framework.xml" />
-    <file src="build\lib\net40\CodeSharp.Framework.pdb" target="lib\net40\CodeSharp.Framework.pdb" />
+    <file src="..\build\lib\net40\CodeSharp.Framework.dll" target="lib\net40\CodeSharp.Framework.dll" />
+    <file src="..\build\lib\net40\CodeSharp.Framework.xml" target="lib\net40\CodeSharp.Framework.xml" />
+    <file src="..\build\lib\net40\CodeSharp.Framework.pdb" target="lib\net40\CodeSharp.Framework.pdb" />
   </files>
 </package>

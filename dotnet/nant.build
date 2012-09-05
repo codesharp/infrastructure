@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <project name="codesharp" default="clean">
+	<property name="runtime" value="dotnet" dynamic="true"/>
   <property name="args0" value="" dynamic="true"/>
   <property name="args1" value="" dynamic="true"/>
   <!--path-->
@@ -9,34 +10,32 @@
   <property name="build.absolutepath" value="${path::get-full-path(build.base)}" />
   <!--nuget-->
   <property name="nuget" value="${path::get-full-path(dir.tools)}" />
-  <property name="nuget.packages" value="${dir}\packages" />
-  <property name="nuget.cache" value="C:\Users\${environment::get-user-name()}\AppData\Local\NuGet\Cache" />
-  <property name="nuget.install" value="${dir}\nuget.install.bat" />
-  <property name="nuget.params.install" value="${nuget} ${path::get-full-path(nuget.packages)}" />
   <property name="nuget.params.push" value="-s http://cs-nuget.apphb.com/ codesharp" />
   <!--msbuild-->
   <property name="msbuild" value="C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" />
   <property name="msbuild.config" value="Release" dynamic="true"/>
-  <property name="msbuild.params"
-            value="/t:rebuild
-            /p:Configuration=${msbuild.config} 
-            /t:ResolveReferences" />
+  <property name="msbuild.params" value="/t:rebuild /p:Configuration=${msbuild.config} /t:ResolveReferences" />
   <property name="msbuild.params.weboutput" value="/t:_CopyWebApplication /p:WebProjectOutputDir=${build.absolutepath}" />
   <property name="msbuild.params.mvcoutput" value="/t:_CopyWebApplication /p:mvcbuildviews=true /p:WebProjectOutputDir=${build.absolutepath}" />
   <property name="msbuild.params.output" value="/p:OutputPath=${build.absolutepath}" />
+  <!--xbuild for mono-->
+  <if test="${runtime=='mono'}">
+    <!--windows use xbuild.bat-->
+    <property name="msbuild" value="xbuild"/>
+  </if>
   <!--NUnit-->
   <property name="nunit" value="${path::get-full-path(dir.tools)}\nunit\nunit-console.exe" />
   
-  <!--clean-->
   <target name="clean" description="clean build folder">
     <delete dir="${build.absolutepath}"></delete>
   </target>
   <target name="nuget" description="nuget install and update">
-    <delete dir="${nuget.packages}"></delete>
-    <delete dir="${nuget.cache}"></delete>
-    <exec program="${nuget.install}"
-          commandline="${nuget.params.install}"
-          workingdir="${dir}" />
+    <if test="${runtime=='dotnet'}">
+      <exec program="nuget.install.bat" commandline="" workingdir="${dir}" />
+    </if>
+    <if test="${runtime=='mono'}">
+      <exec program="sh" commandline="nuget.install.sh" workingdir="${dir}" />
+    </if>
   </target>
 
   <target name="all">
@@ -62,48 +61,58 @@
     <call target="lib_net40"></call>
   </target>
   <target name="lib_net40">
+    <mkdir dir="${build.absolutepath}" />
     <exec program="${msbuild}"
-          commandline="${msbuild.params} ${msbuild.params.output}
-          /p:DocumentationFile=${build.absolutepath}\${libname}.Xml"
+          commandline="${msbuild.params} ${msbuild.params.output} /p:DocumentationFile=${build.absolutepath}\${libname}.Xml"
           workingdir="${dir}\src\${libname}" />
     <copy todir="${build.absolutepath}\lib\net40">
       <fileset basedir="${build.absolutepath}">
         <include name="${libname}.dll" />
         <include name="${libname}.pdb" />
         <include name="${libname}.Xml" />
+        <include name="${libname}.dll.mdb" />
       </fileset>
     </copy>
+    <!--cancel below-->
     <if test="${args0=='pack'}">
       <exec program="${nuget}\nuget"
-          commandline="pack ${libname}.nuspec -outputdirectory packages"
-          workingdir="${dir}" />
+            commandline="pack nuspec\${libname}.nuspec -outputdirectory packages"
+            workingdir="${dir}" />
     </if>
     <if test="${args1=='push'}">
       <exec program="${nuget}\nuget"
-          commandline="push ${libname}.2.0.nupkg ${nuget.params.push}"
-          workingdir="${dir}\packages" />
+            commandline="push ${libname}.2.0.nupkg ${nuget.params.push}"
+            workingdir="${dir}\packages" />
     </if>
   </target>
 
-  <target name="nuget_feeds">
-    <exec program="${msbuild}"
-          commandline="${msbuild.params} 
-          ${msbuild.params.weboutput}\nuget_feeds
-          ${msbuild.params.output}\nuget_feeds\bin"
-          workingdir="${dir}\tools\NugetFeeds" />
-  </target>
-
   <target name="test_core">
-    <exec program="${msbuild}"
-          commandline="CodeSharp.Core.Castles.Test.csproj ${msbuild.params} ${msbuild.params.output}\core_test"
-          workingdir="${dir}\src\CodeSharp.Core.Castles.Test" />
-    <exec program="${nunit}" commandline="CodeSharp.Core.Castles.Test.dll" workingdir="${build.absolutepath}\core_test"/>
+    <if test="${runtime=='dotnet'}">
+      <exec program="${msbuild}"
+            commandline="CodeSharp.Core.Castles.Test.csproj ${msbuild.params} ${msbuild.params.output}\core_test"
+            workingdir="${dir}\src\CodeSharp.Core.Castles.Test" />
+      <exec program="${nunit}" commandline="CodeSharp.Core.Castles.Test.dll" workingdir="${build.absolutepath}\core_test"/>
+    </if>
+    <if test="${runtime=='mono'}">
+      <exec program="${msbuild}"
+            commandline="${msbuild.params} ${msbuild.params.output}\core_test_mono CodeSharp.Core.Castles.Test-mono.csproj"
+            workingdir="${dir}\src\CodeSharp.Core.Castles.Test" />
+      <exec program="mono" commandline="${nunit} CodeSharp.Core.Castles.Test.dll" workingdir="${build.absolutepath}\core_test_mono"/>
+    </if>
   </target>
   <target name="test_framework">
-    <exec program="${msbuild}"
-          commandline="CodeSharp.Framework.Castles.Test.csproj ${msbuild.params} ${msbuild.params.output}\framework_test"
-          workingdir="${dir}\src\CodeSharp.Framework.Castles.Test" />
-    <exec program="${nunit}" commandline="CodeSharp.Framework.Castles.Test.dll" workingdir="${build.absolutepath}\framework_test"/>
+    <if test="${runtime=='dotnet'}">
+      <exec program="${msbuild}"
+            commandline="CodeSharp.Framework.Castles.Test.csproj ${msbuild.params} ${msbuild.params.output}\framework_test"
+            workingdir="${dir}\src\CodeSharp.Framework.Castles.Test" />
+      <exec program="${nunit}" commandline="CodeSharp.Framework.Castles.Test.dll" workingdir="${build.absolutepath}\framework_test"/>
+    </if>
+    <if test="${runtime=='mono'}">
+      <exec program="${msbuild}"
+            commandline="CodeSharp.Framework.Castles.Test-mono.csproj ${msbuild.params} ${msbuild.params.output}\framework_test_mono"
+            workingdir="${dir}\src\CodeSharp.Framework.Castles.Test" />
+      <exec program="mono" commandline="${nunit} CodeSharp.Framework.Castles.Test.dll" workingdir="${build.absolutepath}\framework_test_mono"/>
+    </if>
   </target>
 
 </project>
