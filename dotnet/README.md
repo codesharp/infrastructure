@@ -25,17 +25,32 @@ Copyright (c) CodeSharp.  All rights reserved. - http://www.icodesharp.com/
 ## NET40
 
 * Build
-	- build nuget
-	- build all [pack]
-	- build test_core
-	- build test_framework
+
+```shell
+build.bat nuget
+build.bat all [pack]
+build.bat test_core
+build.bat test_framework
+```
 
 ## MONO
 
-	just use dll
-	2.10.8+
+just use dll under mono 2.10.8+
 
-* Build
+or build:
+```shell
+sh build.sh nuget
+```
+or
+```shell
+sh nuget.install.sh
+```
+then
+```shell
+sh build.sh all [pack]
+sh build.sh test_core
+sh build.sh test_framework
+```
 
 ## License
 
