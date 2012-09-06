@@ -1,0 +1,3 @@
+[submodule "dotnet/external/fluent-nhibernate"]
+	path = dotnet/external/fluent-nhibernate
+	url = git://github.com/wsky/fluent-nhibernate.git
