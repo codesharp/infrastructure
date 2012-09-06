@@ -36,9 +36,6 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="FluentNHibernate">
-      <HintPath>..\..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
-    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -281,6 +278,10 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\external\fluent-nhibernate\src\FluentNHibernate\FluentNHibernate.csproj">
+      <Project>{529145d5-6cc3-4016-89b5-826563024af1}</Project>
+      <Name>FluentNHibernate</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CodeSharp.Core\CodeSharp.Core.csproj">
       <Project>{09088AAE-32AB-4EA8-B918-D5568C047A89}</Project>
       <Name>CodeSharp.Core</Name>

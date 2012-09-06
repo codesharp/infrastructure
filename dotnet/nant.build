@@ -73,6 +73,16 @@
         <include name="${libname}.dll.mdb" />
       </fileset>
     </copy>
+    <if test="${libname=='CodeSharp.Core.Castles'}">
+      <copy todir="${build.absolutepath}/lib/net40">
+        <fileset basedir="${build.absolutepath}">
+          <include name="FluentNHibernate.dll" />
+          <include name="FluentNHibernate.pdb" />
+          <include name="FluentNHibernate.Xml" />
+          <include name="FluentNHibernate.dll.mdb" />
+        </fileset>
+      </copy>
+    </if>
     <!--cancel below-->
     <if test="${args0=='pack'}">
       <exec program="${nuget}\nuget"

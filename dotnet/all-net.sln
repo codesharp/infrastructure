@@ -7,15 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Core.Castles", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{E97700A4-A283-46B7-8B25-73E79FEC7FA7}"
 	ProjectSection(SolutionItems) = preProject
-		..\.gitignore = ..\.gitignore
-		build.bat = build.bat
-		CodeSharp.Core.Castles.nuspec = CodeSharp.Core.Castles.nuspec
-		CodeSharp.Core.nuspec = CodeSharp.Core.nuspec
-		CodeSharp.Framework.Castles.nuspec = CodeSharp.Framework.Castles.nuspec
-		CodeSharp.Framework.nuspec = CodeSharp.Framework.nuspec
+		nuspec\CodeSharp.Core.Castles.nuspec = nuspec\CodeSharp.Core.Castles.nuspec
+		nuspec\CodeSharp.Core.nuspec = nuspec\CodeSharp.Core.nuspec
+		nuspec\CodeSharp.Framework.Castles.nuspec = nuspec\CodeSharp.Framework.Castles.nuspec
+		nuspec\CodeSharp.Framework.nuspec = nuspec\CodeSharp.Framework.nuspec
 		nant.build = nant.build
-		nuget.install.bat = nuget.install.bat
-		nuget.install.cmd = nuget.install.cmd
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -26,6 +22,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Framework.Castles.Test", "src\CodeSharp.Framework.Castles.Test\CodeSharp.Framework.Castles.Test.csproj", "{E241E622-5B24-4389-9855-E1E5D375DFB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSharp.Core.Castles.Test", "src\CodeSharp.Core.Castles.Test\CodeSharp.Core.Castles.Test.csproj", "{447979FD-E700-4A1B-BB5D-9F09E561EEB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentNHibernate", "external\fluent-nhibernate\src\FluentNHibernate\FluentNHibernate.csproj", "{529145D5-6CC3-4016-89B5-826563024AF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external", "external", "{4919FF5C-2F09-4EDB-9656-2AD13D49531B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,8 +57,15 @@ Global
 		{447979FD-E700-4A1B-BB5D-9F09E561EEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{447979FD-E700-4A1B-BB5D-9F09E561EEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{447979FD-E700-4A1B-BB5D-9F09E561EEB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{529145D5-6CC3-4016-89B5-826563024AF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{529145D5-6CC3-4016-89B5-826563024AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{529145D5-6CC3-4016-89B5-826563024AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{529145D5-6CC3-4016-89B5-826563024AF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{529145D5-6CC3-4016-89B5-826563024AF1} = {4919FF5C-2F09-4EDB-9656-2AD13D49531B}
 	EndGlobalSection
 EndGlobal
