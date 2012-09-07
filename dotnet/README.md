@@ -22,6 +22,17 @@ Copyright (c) CodeSharp.  All rights reserved. - http://www.icodesharp.com/
 	- CodeSharp.Framework
 	- CodeSharp.Framework.Casltes
 
+## External
+
+fluent-nhibernate: 
+
+from https://github.com/wsky/fluent-nhibernate
+
+because there are some unfixed bug under mono runtime,
+
+and also for more debug info we need via mdb.
+
+
 ## NET40
 
 * Build

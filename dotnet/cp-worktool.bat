@@ -1,1 +1,0 @@
-xcopy  build\lib\net40 ..\..\work-tool\lib\infrastructure\net40  /Y /E /I /R

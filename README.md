@@ -40,8 +40,20 @@ Publish on Nuget
 
 ## Build
 
-- runfirst.bat/sh
-- see upgrade.md
+Set submodule first:
+
+```shell
+[sh] submoudle.cmd
+```
+
+then go into the folder which you want to build, like:
+
+```shell
+cd dotnet
+build all
+```
+
+see upgrade.md for more about latest change or upgrad issues.
 
 ## License
 
